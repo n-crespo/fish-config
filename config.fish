@@ -50,6 +50,7 @@ set pure_show_subsecond_command_duration false
 
 
 function s
+    pkill ssh
     eval (ssh-agent -c)
     ssh-add ~/.ssh/usernicolas
 end
@@ -191,3 +192,5 @@ abbr dc cd
 set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
 
 set -U fish_user_paths /home/nicolas/.cargo/bin $fish_user_paths
+
+s --no-fork >/dev/null 2>&1
