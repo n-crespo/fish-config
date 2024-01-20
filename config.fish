@@ -14,16 +14,8 @@ end
 # set correct editor
 set -Ux EDITOR nvim
 set -gx EDITOR nvim
-set -Ue FZF_COMPLETE
-set -Ue FZF_CTRL_O_OPTS
-set -Ue FZF_PREVIEW_DIR_CMD
-set -Ue FZF_PREVIEW_FILE_CMD
-set -Ue FZF_ALT_C_OPTS
-set -Ue FZF_CTRL_R_OPTS
-set -Ux FZF_ENABLE_OPEN_PREVIEW 0
-set -Ue FZF_FIND_FILE_COMMAND
-set -Ue FZF_OPEN_COMMAND
-# FZF_CD_COMMAND
+
+set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 
 # fix vscode
 set -x DISPLAY :0
