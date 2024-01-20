@@ -15,6 +15,15 @@ end
 set -Ux EDITOR nvim
 set -gx EDITOR nvim
 set -e FZF_COMPLETE
+set -e FZF_CTRL_O_OPTS
+set -e FZF_PREVIEW_DIR_CMD
+set -e FZF_PREVIEW_FILE_CMD
+set -e FZF_ALT_C_OPTS
+set -e FZF_CTRL_R_OPTS
+
+set -e FZF_FIND_FILE_COMMAND
+set -e FZF_OPEN_COMMAND
+
 # fix vscode
 set -x DISPLAY :0
 set -x RANGER_DEVICONS_SEPARATOR " "
