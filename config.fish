@@ -50,7 +50,6 @@ set pure_show_subsecond_command_duration false
 
 
 function s
-    # pkill ssh
     eval (ssh-agent -c)
     ssh-add ~/.ssh/usernicolas
 end
@@ -72,13 +71,9 @@ function rjava
     javac $argv[1].java; and java $argv[1]
 end
 
-# alias lg 'pkill ssh;s;lazygit'
-# this could be dangerous, but there is no need for more than one ssh process at
-# a time
-function lg
-    # s
-    lazygit
-end
+
+
+alias lg lazygit
 
 function g:
     git add .
@@ -106,12 +101,10 @@ alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 
 # maintaining dotfiles
-alias dots 'echo "bash, zsh, fish, pwsh, wezterm"'
+alias dots 'echo "bash, zsh, pwsh"'
 alias dotbash 'nvim -d /root/.bashrc ~/dot-files/bash/.bashrc'
-alias dotfish 'nvim -d ~/.config/fish/config.fish ~/dot-files/fish/config.fish'
 alias dotzsh 'nvim -d /root/.zshrc ~/dot-files/zsh/.zshrc'
 alias dotpwsh 'nvim -d /mnt/c/Users/nicol/'
-alias dotwez 'nvim -d /mnt/c/Users/nicol/.wezterm.lua ~/dot-files/wezterm/.wezterm.lua'
 
 # Alias's for multiple directory listing commands
 # alias ls 'ls -aFh --color always' # add colors and file type extensions
