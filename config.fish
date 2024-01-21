@@ -76,7 +76,6 @@ end
 # this could be dangerous, but there is no need for more than one ssh process at
 # a time
 function lg
-    pkill ssh
     s
     lazygit
 end
@@ -198,6 +197,7 @@ set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 # echo $parent_process
 
 if test "$parent_process" = su
+    pkill ssh
     s >/dev/null 2>&1
     echo "ssh-key added!"
 end
