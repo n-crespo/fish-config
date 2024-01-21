@@ -76,7 +76,7 @@ end
 # this could be dangerous, but there is no need for more than one ssh process at
 # a time
 function lg
-    s
+    # s
     lazygit
 end
 
