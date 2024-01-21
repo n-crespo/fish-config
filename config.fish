@@ -96,7 +96,7 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'trash -v'
 alias mkdir 'mkdir -p'
-alias ps 'ps auxf'
+alias psa 'ps auxf'
 alias ping 'ping -c 10'
 abbr cls clear
 alias home 'cd '
@@ -190,5 +190,8 @@ abbr dc cd
 
 # set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
 set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
-
 set -U fish_user_paths /home/nicolas/.cargo/bin $fish_user_paths
+
+# if test (ps -o comm= -p (ps -o ppid= -p $fish_pid)) = su
+#     s --no-fork >/dev/null 2>&1
+# end
