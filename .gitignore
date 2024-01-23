@@ -1,0 +1,8 @@
+!config.fish
+!functions/fish_prompt.fish
+!.gitignore
+themes/*
+completions/*
+conf.d/*
+functions/*
+
