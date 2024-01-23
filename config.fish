@@ -36,6 +36,8 @@ set pure_color_mute 4e9a06
 
 set --global hydro_symbol_prompt '→'
 set --global hydro_symbol_git_dirty '*'
+set --global fish_prompt_pwd_dir_length 100
+# set --global hydro_color_pwd
 
 
 set pure_enable_single_line_prompt true
