@@ -164,6 +164,7 @@ alias cs 'cd ~/grade-12/cs/'
 alias csa 'cd ~/grade-12/csa/'
 # wsl specific, open explorer in cwd
 alias exp 'wopen .'
+abbr weather 'curl wttr.in'
 abbr ra ranger
 abbr n nvim
 # remove all Windows generated end line characters (^ M)
