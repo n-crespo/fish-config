@@ -90,7 +90,6 @@ end
 alias gs 'git status'
 alias so 'omf reload'
 
-abbr cat bat
 alias ebrc 'nvim ~/.bashrc'
 alias cp 'cp -i'
 alias mv 'mv -i'
@@ -98,7 +97,6 @@ alias rm 'trash -v'
 alias mkdir 'mkdir -p'
 alias psa 'ps auxf'
 alias ping 'ping -c 10'
-abbr cls clear
 alias home 'cd '
 alias .. 'cd ..'
 alias .. 'cd ..'
@@ -118,45 +116,17 @@ alias ls 'eza --icons=always --group-directories-first' # add colors and file ty
 alias la 'ls -Alh --group-directories-first' # show hidden files
 alias lt 'ls --tree'
 
-alias lx 'ls -lXBh' # sort by extension
-alias lk 'ls -lSrh' # sort by size
-alias lf 'ls -f' # show only files
-alias lc 'ls -lcrh' # sort by change time
-alias lu 'ls -lurh' # sort by access time
-alias lr 'ls -lRh' # recursive ls
-# alias lt 'ls -ltrh'               # sort by date
-alias lm 'ls -alh |more' # pipe through 'more'
 alias lw 'ls -xAh' # wide listing format
 alias ll 'ls -l' # long listing format
-alias labc 'ls -lap' #alphabetical sort
-# alias lf "ls -l | egrep -v '^d'" # files only
-alias ldir "ls -l | egrep '^d'" # directories only
 
 # Search running processes
 alias p "ps aux | grep "
-alias topcpu "/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 
 # Search files in the current folder
 alias f "find . | grep "
 
-# To see if a command is aliased, a file, or a built-in command
-alias checkcommand "type -t"
-
 # Alias's to show disk space and space used in a folder
-alias diskspace "du -S | sort -n -r |more"
 alias tree 'ls -T'
-alias treed 'tree -CAFd'
-
-# Alias's for archives
-alias mktar 'tar -cvf'
-alias mkbz2 'tar -cvjf'
-alias mkgz 'tar -cvzf'
-alias untar 'tar -xvf'
-alias unbz2 'tar -xvjf'
-alias ungz 'tar -xvzf'
-
-# rerun previous command
-# alias r 'fc -s'
 
 # jump to neovim config
 alias c 'cd ~/.config/nvim;nvim init.lua'
@@ -164,28 +134,26 @@ alias cs 'cd ~/grade-12/cs/'
 alias csa 'cd ~/grade-12/csa/'
 # wsl specific, open explorer in cwd
 alias exp 'wopen .'
-abbr weather 'curl wttr.in'
-abbr ra ranger
-abbr n nvim
-# remove all Windows generated end line characters (^ M)
-# alias rmm 'dos2unix -c mac'
-# reload ssh-key
-# alias s 'eval "$(ssh-agent -s)" ; ssh-add ~/.ssh/usernicolas'
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias l 'ls -l --group-directories-first'
 alias ctheme 'echo "$OMB_THEME_RANDOM_SELECTED"'
 alias nala 'sudo nala'
 alias wopen wsl-open
-abbr img 'wezterm imgcat'
 alias su 'su -'
-abbr n. 'nvim .'
 
+abbr cat bat
+abbr cls clear
+abbr n. 'nvim .'
+abbr img 'wezterm imgcat'
 abbr v vim
 abbr g git
 abbr q exit
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 abbr sl ls
 abbr dc cd
+abbr weather 'curl wttr.in'
+abbr ra ranger
+abbr n nvim
 
 # set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
 set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
