@@ -140,6 +140,7 @@ alias ctheme 'echo "$OMB_THEME_RANDOM_SELECTED"'
 alias nala 'sudo nala'
 alias wopen wsl-open
 alias su 'su -'
+alias csv csvlens
 
 abbr cat bat
 abbr cls clear
