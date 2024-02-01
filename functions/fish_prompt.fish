@@ -3,7 +3,7 @@ function fish_prompt
     #     echo -n (set_color green)"~ "
     # else
     # end
-    echo -n (set_color green)(prompt_pwd)
-    echo -n (set_color blue)"  "
+    echo -n (set_color 89ca78)(prompt_pwd)
+    echo -n (set_color 61afef)"  "
     set_color normal
 end
