@@ -13,7 +13,6 @@ begin
         source $AUTOJUMP_PATH
     end
 end
-set fish_greeting # don't show fish greeting
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
@@ -30,6 +29,10 @@ set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 # -----------------------
 #       FUNCTIONS
 # -----------------------
+
+function fish_greeting
+    # fortune
+end
 
 function fish_right_prompt # don't show time on right side
 end
