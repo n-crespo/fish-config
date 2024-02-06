@@ -9,14 +9,18 @@ begin
     end
 end
 
+
+# don't show time on right side
 function fish_right_prompt
     #intentionally left blank
 end
 
+# don't show vi mode indicator
 function fish_mode_prompt
 end
 
-# source ~/.bash_aliases
+# don't show greeting
+set fish_greeting
 
 # set correct editor
 set -Ux EDITOR nvim
