@@ -9,6 +9,13 @@ begin
     end
 end
 
+function fish_right_prompt
+    #intentionally left blank
+end
+
+function fish_mode_prompt
+end
+
 # source ~/.bash_aliases
 
 # set correct editor
