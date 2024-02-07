@@ -25,6 +25,7 @@ set -U fish_user_paths /home/nicolas/.cargo/bin $fish_user_paths
 set parent_process (ps -o ppid= -p $fish_pid)
 set parent_process (string trim $parent_process)
 set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
+set fish_prompt_pwd_dir_length 0
 
 # -----------------------
 #       FUNCTIONS
