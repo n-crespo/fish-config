@@ -2,9 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# -----------------------
+# ----------------------- #
 #       VARIABLES
-# -----------------------
+# ----------------------- #
 
 # make sure autojump is working
 begin
@@ -27,18 +27,20 @@ set parent_process (string trim $parent_process)
 set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 set fish_prompt_pwd_dir_length 0
 
-# -----------------------
+# ----------------------- #
 #       FUNCTIONS
-# -----------------------
+# ----------------------- #
 
 function fish_greeting
     # fortune
 end
 
-function fish_right_prompt # don't show time on right side
+function fish_right_prompt
+    # don't show time on right side
 end
 
-function fish_mode_prompt # don't show vi mode indicator
+function fish_mode_prompt
+    # don't show vi mode indicator
 end
 
 function s
@@ -71,9 +73,9 @@ if test "$parent_process" = su
     echo "ssh-key added!"
 end
 
-# -----------------------
+# ----------------------- #
 #        ALIASES
-# -----------------------
+# ----------------------- #
 
 alias gs 'git status'
 alias so 'omf reload'
@@ -105,9 +107,9 @@ alias wopen wsl-open
 alias su 'su -'
 alias csv csvlens
 
-# -----------------------
+# ----------------------- #
 #     ABBREVIATIONS
-# -----------------------
+# ----------------------- #
 
 abbr cat bat
 abbr cls clear
