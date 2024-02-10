@@ -124,3 +124,4 @@ abbr dc cd
 abbr weather 'curl wttr.in'
 abbr ra ranger
 abbr n nvim
+abbr rmm dos2unix
