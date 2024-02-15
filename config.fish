@@ -7,12 +7,12 @@ end
 # ----------------------- #
 
 # make sure autojump is working
-begin
-    set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
-    if test -e $AUTOJUMP_PATH
-        source $AUTOJUMP_PATH
-    end
-end
+# begin
+#     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
+#     if test -e $AUTOJUMP_PATH
+#         source $AUTOJUMP_PATH
+#     end
+# end
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
@@ -26,6 +26,7 @@ set parent_process (ps -o ppid= -p $fish_pid)
 set parent_process (string trim $parent_process)
 set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 set fish_prompt_pwd_dir_length 0
+zoxide init --cmd j fish | source
 
 # ----------------------- #
 #       FUNCTIONS
