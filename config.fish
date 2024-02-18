@@ -6,27 +6,21 @@ end
 #       VARIABLES
 # ----------------------- #
 
-# make sure autojump is working
-# begin
-#     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
-#     if test -e $AUTOJUMP_PATH
-#         source $AUTOJUMP_PATH
-#     end
-# end
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
 set -x RANGER_DEVICONS_SEPARATOR " "
 set -x PATH $PATH /mnt/c/WINDOWS/system32 # add cmd.exe to path
+set -x PATH $PATH /home/nicolas/julia-1.8.1/bin
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
 set -U fish_user_paths /home/nicolas/.cargo/bin $fish_user_paths
-set parent_process (ps -o ppid= -p $fish_pid)
-set parent_process (string trim $parent_process)
-set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
-set fish_prompt_pwd_dir_length 0
-zoxide init --cmd j fish | source
+set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
+set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
+set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
+set -Ux FZF_ENABLE_OPEN_PREVIEW 1
+zoxide init --cmd j fish | source # zoxide
 
 # ----------------------- #
 #       FUNCTIONS
@@ -68,6 +62,9 @@ function g:
 end
 
 # add ssh-key if shell is opened on startup, not in random shell instances
+set parent_process (ps -o ppid= -p $fish_pid)
+set parent_process (string trim $parent_process)
+set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 if test "$parent_process" = su
     pkill ssh
     s >/dev/null 2>&1
