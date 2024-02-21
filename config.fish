@@ -20,6 +20,8 @@ set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
 set -Ux FZF_ENABLE_OPEN_PREVIEW 1
+set -U FZF_PREVIEW_DIR_CMD ls
+set -U FZF_PREVIEW_FILE_CMD "head -n 10"
 zoxide init --cmd j fish | source # zoxide
 
 # ----------------------- #
