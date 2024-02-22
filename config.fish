@@ -8,7 +8,6 @@ end
 
 # set -e fish_user_paths
 set -U fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
-
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
@@ -18,9 +17,6 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
-set -Ux FZF_ENABLE_OPEN_PREVIEW 1
-set -U FZF_PREVIEW_DIR_CMD ls
-set -U FZF_PREVIEW_FILE_CMD "head -n 10"
 zoxide init --cmd j fish | source # zoxide
 
 # ----------------------- #
@@ -78,7 +74,6 @@ end
 
 alias gs 'git status'
 alias so 'omf reload'
-alias ebrc 'nvim ~/.bashrc'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'trash -v'
@@ -96,7 +91,6 @@ alias l 'ls -l --group-directories-first'
 alias lt 'ls --tree' # tree
 alias p "ps aux | grep " # Search running processes
 alias f "find . | grep " # Search files in the current folder
-alias c 'cd ~/.config/nvim;nvim init.lua' # jump to neovim config
 alias cs 'cd ~/grade-12/cs/'
 alias csa 'cd ~/grade-12/csa/'
 alias exp 'wopen .' # wsl specific, open explorer in cwd
