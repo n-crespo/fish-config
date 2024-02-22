@@ -6,16 +6,15 @@ end
 #       VARIABLES
 # ----------------------- #
 
+# set -e fish_user_paths
+set -u fish_user_paths $fish_user_paths /mny/c/WINDOWS/system32 /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
+
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
 set -x RANGER_DEVICONS_SEPARATOR " "
-set -x PATH $PATH /mnt/c/WINDOWS/system32 # add cmd.exe to path
-set -x PATH $PATH /home/nicolas/julia-1.8.1/bin
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
-set -Ux LD_LIBRARY_PATH /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server $LD_LIBRARY_PATH
-set -U fish_user_paths /home/nicolas/.cargo/bin $fish_user_paths
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
