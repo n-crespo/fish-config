@@ -7,7 +7,8 @@ end
 # ----------------------- #
 
 # set -e fish_user_paths
-set -U fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
+set -e fish_user_paths
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
