@@ -10,7 +10,7 @@ end
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
 set -Ux EDITOR nvim # set correct editor
-set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/bin/java
+set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
@@ -101,6 +101,7 @@ alias nala 'sudo nala'
 alias wopen wsl-open
 alias su 'su -'
 alias csv csvlens
+alias rmm dos2unix
 
 # ----------------------- #
 #     ABBREVIATIONS
@@ -119,4 +120,3 @@ abbr dc cd
 abbr weather 'curl wttr.in'
 abbr ra ranger
 abbr n nvim
-abbr rmm dos2unix
