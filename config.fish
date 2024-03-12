@@ -46,8 +46,12 @@ function mdtodocx
     pandoc -o output.docx -f markdown -t docx $argv[1].md
 end
 
+# function rcpp
+#     g++ -o $argv[1] $argv[1].cpp; and ./$argv[1]
+# end
+
 function rcpp
-    g++ -o $argv[1] $argv[1].cpp; and ./$argv[1]
+    g++ -o main *.cpp && ./main
 end
 
 function rjava
@@ -102,6 +106,7 @@ alias wopen wsl-open
 alias su 'su -'
 alias csv csvlens
 alias rmm dos2unix
+alias cmd.exe /mnt/c/Windows/System32/cmd.exe
 
 # ----------------------- #
 #     ABBREVIATIONS
