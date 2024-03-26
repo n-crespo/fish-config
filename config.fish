@@ -54,6 +54,10 @@ function rcpp
     g++ -o main *.cpp && ./main
 end
 
+function imgview
+    kitty +kitten icat $argv[1]
+end
+
 function rjava
     javac $argv[1].java; and java $argv[1]
 end
@@ -64,12 +68,11 @@ function g:
     git push
 end
 
-# add ssh-key if shell is opened on startup, not in random shell instances
-set parent_process (ps -o ppid= -p $fish_pid)
-set parent_process (string trim $parent_process)
-set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
+# # add ssh-key if shell is opened on startup, not in random shell instances
+# set parent_process (ps -o ppid= -p $fish_pid)
+# set parent_process (string trim $parent_process)
+# set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 if test "$parent_process" = su
-    pkill ssh
     s >/dev/null 2>&1
     echo "ssh-key added!"
 end
