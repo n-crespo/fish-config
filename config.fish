@@ -69,9 +69,9 @@ function g:
 end
 
 # # add ssh-key if shell is opened on startup, not in random shell instances
-# set parent_process (ps -o ppid= -p $fish_pid)
-# set parent_process (string trim $parent_process)
-# set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
+set parent_process (ps -o ppid= -p $fish_pid)
+set parent_process (string trim $parent_process)
+set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 if test "$parent_process" = su
     s >/dev/null 2>&1
     echo "ssh-key added!"
