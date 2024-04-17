@@ -77,6 +77,10 @@ if test "$parent_process" = su
     echo "ssh-key added!"
 end
 
+function server
+    browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
+end
+
 # ----------------------- #
 #        ALIASES
 # ----------------------- #
