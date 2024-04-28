@@ -74,7 +74,7 @@ set parent_process (string trim $parent_process)
 set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 if test "$parent_process" = su
     s >/dev/null 2>&1
-    echo "ssh-key added!"
+    # echo "ssh-key added!"
 end
 
 function server
