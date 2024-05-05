@@ -25,6 +25,7 @@ SETUVAR _fish_abbr_dotfish:nvim\x20\x2dd\x20\x7e/\x2econfig/fish/config\x2efish\
 SETUVAR _fish_abbr_dotpwsh:nvim\x20\x2dd\x20/mnt/c/Users/nicol/
 SETUVAR _fish_abbr_dotwez:nvim\x20\x2dd\x20/mnt/c/Users/nicol/\x2ewezterm\x2elua\x20\x7e/dot\x2dfiles/wezterm/\x2ewezterm\x2elua
 SETUVAR _fish_abbr_dotzsh:nvim\x20\x2dd\x20/root/\x2ezshrc\x20\x7e/dot\x2dfiles/zsh/\x2ezshrc
+SETUVAR _fish_abbr_ff:fastfetch
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_img:wezterm\x20imgcat
 SETUVAR _fish_abbr_lg:lazygit
