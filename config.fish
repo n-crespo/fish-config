@@ -9,6 +9,8 @@ end
 # set -e fish_user_paths
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
+# set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/bin/
+
 set -Ux EDITOR nvim # set correct editor
 set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
 set -gx EDITOR nvim # set correct editor
@@ -54,10 +56,6 @@ function rcpp
     g++ -o main *.cpp && ./main
 end
 
-function imgview
-    kitty +kitten icat $argv[1]
-end
-
 function rjava
     javac $argv[1].java; and java $argv[1]
 end
@@ -86,7 +84,7 @@ end
 # ----------------------- #
 
 alias gs 'git status'
-alias so 'omf reload'
+alias so 'source ~/.config/fish/config.fish'
 alias cp 'cp -i'
 alias mv 'mv -i'
 alias rm 'trash -v'
