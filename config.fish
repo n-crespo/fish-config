@@ -114,6 +114,7 @@ alias rmm dos2unix
 alias nn /usr/bin/nvim
 alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
+alias bd 'cd -'
 # "C:\Program Files\WindowsApps\Microsoft.PowerShell_7.4.1.0_x64__8wekyb3d8bbwe\pwsh.exe"
 
 # ----------------------- #
