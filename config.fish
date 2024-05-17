@@ -57,7 +57,7 @@ function rcpp
 end
 
 function rjava
-    javac $argv[1].java; and java $argv[1]
+    javac $argv[1].java -d bin/; and java -cp bin/$argv[1]
 end
 
 function g:
