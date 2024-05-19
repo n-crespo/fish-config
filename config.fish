@@ -48,16 +48,12 @@ function mdtodocx
     pandoc -o output.docx -f markdown -t docx $argv[1].md
 end
 
-# function rcpp
-#     g++ -o $argv[1] $argv[1].cpp; and ./$argv[1]
-# end
-
 function rcpp
     g++ -o main *.cpp && ./main
 end
 
 function rjava
-    javac $argv[1].java -d bin/; and java -cp bin/$argv[1]
+    javac $argv[1].java -d bin/; and java -cp bin/ $argv[1]
 end
 
 function g:
@@ -77,6 +73,11 @@ end
 
 function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
+end
+
+function cd
+    builtin cd $argv
+    and ls
 end
 
 # ----------------------- #
