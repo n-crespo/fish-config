@@ -49,7 +49,7 @@ function mdtodocx
 end
 
 function rcpp
-    g++ -o main *.cpp && ./main
+    g++ *.cpp -o /tmp/main && /tmp/main
 end
 
 function rjava
@@ -73,11 +73,6 @@ end
 
 function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
-end
-
-function cd
-    builtin cd $argv
-    and ls
 end
 
 # ----------------------- #
@@ -136,3 +131,9 @@ abbr weather 'curl wttr.in'
 abbr ra ranger
 abbr n nvim
 abbr ff fastfetch
+
+# ----------------------- #
+#       KEYBINDINGS
+# ----------------------- #
+
+bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
