@@ -11,7 +11,7 @@ set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
 # set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/bin/
 
-set -Ux EDITOR nvim # set correct editor
+set -Ux EDITOR /usr/bin/nvim # set correct editor
 set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
