@@ -79,7 +79,7 @@ end
 #        ALIASES
 # ----------------------- #
 
-alias gs 'git status'
+alias gs 'git status -s'
 alias so 'source ~/.config/fish/config.fish'
 alias cp 'cp -i'
 alias mv 'mv -i'
