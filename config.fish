@@ -94,7 +94,7 @@ alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 alias ls 'eza --icons=always --group-directories-first' # add colors and file type extensions
 alias la 'ls -Alh --group-directories-first' # show hidden files
-alias l 'ls -l --group-directories-first'
+alias l 'ls -l --group-directories-first --git -a'
 alias lt 'ls --tree' # tree
 alias p "ps aux | grep " # Search running processes
 alias f "find . | grep " # Search files in the current folder
