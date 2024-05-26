@@ -56,6 +56,10 @@ function rjava
     javac $argv[1].java -d bin/; and java -cp bin/ $argv[1]
 end
 
+function rjall
+    javac *.java -d bin/; and java -cp bin/ src.Main
+end
+
 function g:
     git add .
     git commit -m "$argv"
