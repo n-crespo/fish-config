@@ -117,6 +117,7 @@ alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias bd 'cd -'
 alias pbcopy 'xsel --input --clipboard'
 alias pbpaste 'xsel --output --clipboard'
+alias e yazi
 # "C:\Program Files\WindowsApps\Microsoft.PowerShell_7.4.1.0_x64__8wekyb3d8bbwe\pwsh.exe"
 
 # ----------------------- #
