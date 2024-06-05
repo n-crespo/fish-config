@@ -158,3 +158,5 @@ else
     end
 end
 # <<< conda initialize <<<
+
+# NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
