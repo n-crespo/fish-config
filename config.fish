@@ -148,13 +148,13 @@ bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autos
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /home/nicolas/miniconda3/bin/conda
-    eval /home/nicolas/miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
-        . "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH /home/nicolas/miniconda3/bin $PATH
-    end
-end
+#if test -f /home/nicolas/miniconda3/bin/conda
+#    eval /home/nicolas/miniconda3/bin/conda "shell.fish" hook $argv | source
+#else
+#    if test -f "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
+#        . "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
+#    else
+#        set -x PATH /home/nicolas/miniconda3/bin $PATH
+#    end
+#end
 # <<< conda initialize <<<
