@@ -9,7 +9,6 @@ end
 # set -e fish_user_paths
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
-# set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/bin/
 
 set -Ux EDITOR /usr/bin/nvim # set correct editor
 set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
@@ -148,15 +147,15 @@ bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autos
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /home/nicolas/miniconda3/bin/conda
-    eval /home/nicolas/miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
-        . "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH /home/nicolas/miniconda3/bin $PATH
-    end
-end
-# <<< conda initialize <<<
+#if test -f /home/nicolas/miniconda3/bin/conda
+#    eval /home/nicolas/miniconda3/bin/conda "shell.fish" hook $argv | source
+#else
+#    if test -f "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
+#        . "/home/nicolas/miniconda3/etc/fish/conf.d/conda.fish"
+#    else
+#        set -x PATH /home/nicolas/miniconda3/bin $PATH
+#    end
+#end
+## <<< conda initialize <<<
 
 # NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
