@@ -78,6 +78,15 @@ function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
 end
 
+function e
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        cd -- "$cwd"
+    end
+    /bin/rm -f -- "$tmp"
+end
+
 # ----------------------- #
 #        ALIASES
 # ----------------------- #
@@ -116,7 +125,6 @@ alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias bd 'cd -'
 alias pbcopy 'xsel --input --clipboard'
 alias pbpaste 'xsel --output --clipboard'
-alias e yazi
 alias live 'live-server --browser=/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe&'
 # "C:\Program Files\WindowsApps\Microsoft.PowerShell_7.4.1.0_x64__8wekyb3d8bbwe\pwsh.exe"
 
@@ -144,6 +152,9 @@ abbr ff fastfetch
 # ----------------------- #
 
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
+bind -M insert \cE suppress-autosuggestion
+bind -M insert \e\[27\;6\;15~ "__zoxide_zi;commandline -f repaint"
+bind -M insert \cP "__zoxide_zi;commandline -f repaint"
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
