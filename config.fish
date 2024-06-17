@@ -151,10 +151,38 @@ abbr ff fastfetch
 #       KEYBINDINGS
 # ----------------------- #
 
+# ~/.config/fish/config.fish
+
+# Define a function to list jobs, use fzf to select one, and preview the job details
+function select_job_with_fzf
+    # Get the list of jobs with their job IDs
+    set -l jobs_list (jobs | awk '{print $1 " " $2}')
+
+    # Check if there are any jobs available
+    if test (count $jobs_list) -eq 0
+        echo "no jobs available"
+        return
+    end
+
+    # Use fzf to select a job
+    set -l selected_job (echo $jobs_list | fzf --preview 'ps -fp {1}')
+
+    # Extract the job ID from the selected job
+    set -l job_id (echo $selected_job | awk '{print $1}')
+
+    # Bring the selected job to the foreground
+    if test -n "$job_id"
+        fg %$job_id
+    end
+end
+
+# Bind Ctrl + Z to the select_job_with_fzf function
+bind -M insert \cz "select_job_with_fzf;commandline -f repaint"
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
 bind -M insert \cE suppress-autosuggestion
 bind -M insert \e\[27\;6\;15~ "__zoxide_zi;commandline -f repaint"
 bind -M insert \cP "__zoxide_zi;commandline -f repaint"
+bind -M insert \n "__zoxide_zi;commandline -f repaint"
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
