@@ -33,25 +33,29 @@ zoxide init --cmd j fish | source # zoxide
 # set pure_color_mute 4e9a06
 
 
-set --global hydro_symbol_prompt '→'
+# set --global hydro_symbol_prompt '→'
 set --global hydro_symbol_git_dirty '*'
 set --global fish_prompt_pwd_dir_length 100
 # set --global hydro_color_pwd
 
+set pure_color_warning green
 
 set pure_enable_single_line_prompt true
 set pure_begin_prompt_with_current_directory true
 set pure_separate_prompt_on_error false
 set pure_show_prefix_root_prompt true
 set pure_threshold_command_duration 5
-set pure_symbol_prompt '→'
+set pure_symbol_prompt '❯'
+set pure_enable_git true # this can be disable to make things faster but async does that too
 set pure_symbol_git_unpulled_commits '↓'
 set pure_symbol_git_unpushed_commits '↑'
 set pure_symbol_git_stash ' '
-set pure_symbol_reverse_prompt '→'
+set pure_symbol_reverse_prompt '❯'
+set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release false
-set pure_show_subsecond_command_duration true
+set pure_show_subsecond_command_duration false
+set pure_show_jobs true
 
 # ----------------------- #
 #       FUNCTIONS
@@ -116,6 +120,38 @@ function e
         cd -- "$cwd"
     end
     /bin/rm -f -- "$tmp"
+end
+
+function fzf_jobs
+    # Get the commands associated with each job
+    set -l job_commands (jobs -c)
+
+    # Check if there are any jobs
+    if test (count $job_commands) -eq 0
+        echo "No jobs found."
+        return
+    end
+
+    # Prepare preview command to show both job command and working directory
+    set preview_command "
+        begin
+            set job_specifier (echo {} | awk '{print \$1}')
+
+            set command (jobs -c | grep \$job_specifier)
+            if test -n \"\$command\"
+                set pid (string sub -b 1 (echo \$command | awk '{print \$1}'))
+                echo \"PID: \$pid\"
+                echo \"Command: \$command\"
+                echo \"Working Directory: (pwdx \$pid | awk '{print \$2}')\"
+            else
+                echo \"Command: No command found\"
+                echo \"Working Directory: No working directory found\"
+            end
+        end
+    "
+
+    # Combine job commands into a format suitable for fzf
+    jobs -c | fzf --height=20 --reverse --preview="$preview_command"
 end
 
 # ----------------------- #

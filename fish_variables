@@ -107,7 +107,7 @@ SETUVAR pure_color_system_time:pure_color_mute
 SETUVAR pure_color_username_normal:pure_color_mute
 SETUVAR pure_color_username_root:pure_color_light
 SETUVAR pure_color_virtualenv:pure_color_mute
-SETUVAR pure_color_warning:yellow
+SETUVAR pure_color_warning:green
 SETUVAR pure_enable_aws_profile:true
 SETUVAR pure_enable_container_detection:true
 SETUVAR pure_enable_git:true
@@ -119,9 +119,9 @@ SETUVAR pure_reverse_prompt_symbol_in_vimode:true
 SETUVAR pure_separate_prompt_on_error:false
 SETUVAR pure_shorten_prompt_current_directory_length:0
 SETUVAR pure_shorten_window_title_current_directory_length:0
-SETUVAR pure_show_jobs:false
+SETUVAR pure_show_jobs:true
 SETUVAR pure_show_prefix_root_prompt:true
-SETUVAR pure_show_subsecond_command_duration:true
+SETUVAR pure_show_subsecond_command_duration:false
 SETUVAR pure_show_system_time:false
 SETUVAR pure_symbol_aws_profile_prefix:
 SETUVAR pure_symbol_container_prefix:
@@ -132,8 +132,8 @@ SETUVAR pure_symbol_git_unpushed_commits:\u2191
 SETUVAR pure_symbol_k8s_prefix:\u2638
 SETUVAR pure_symbol_nixdevshell_prefix:\u2744\ufe0f
 SETUVAR pure_symbol_prefix_root_prompt:\x23
-SETUVAR pure_symbol_prompt:\u2192
-SETUVAR pure_symbol_reverse_prompt:\u2192
+SETUVAR pure_symbol_prompt:\u276f
+SETUVAR pure_symbol_reverse_prompt:\u276e
 SETUVAR pure_symbol_ssh_prefix:
 SETUVAR pure_symbol_title_bar_separator:\x2d
 SETUVAR pure_symbol_virtualenv_prefix:
