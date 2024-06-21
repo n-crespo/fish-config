@@ -22,6 +22,7 @@ set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
 zoxide init --cmd j fish | source # zoxide
+theme_tokyonight storm
 
 # # #2bbac5
 # set pure_color_primary 34e2e2
@@ -54,7 +55,7 @@ set pure_symbol_reverse_prompt '❯'
 set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release false
-set pure_show_subsecond_command_duration false
+set pure_show_subsecond_command_duration true
 set pure_show_jobs true
 
 # ----------------------- #
@@ -201,11 +202,11 @@ abbr ff fastfetch
 
 bind -M insert \cz "fzf_jobs;commandline -f repaint"
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
-bind -M insert \cE suppress-autosuggestion
 # below lines for fzf zoxide
 bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
+bind -M insert \cE "e; commandline -f repaint"
 # bind \cg 'git diff; commandline -f repaint'
 # bind -M insert \cc kill-whole-line repaint
 

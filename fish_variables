@@ -121,7 +121,7 @@ SETUVAR pure_shorten_prompt_current_directory_length:0
 SETUVAR pure_shorten_window_title_current_directory_length:0
 SETUVAR pure_show_jobs:true
 SETUVAR pure_show_prefix_root_prompt:true
-SETUVAR pure_show_subsecond_command_duration:false
+SETUVAR pure_show_subsecond_command_duration:true
 SETUVAR pure_show_system_time:false
 SETUVAR pure_symbol_aws_profile_prefix:
 SETUVAR pure_symbol_container_prefix:
