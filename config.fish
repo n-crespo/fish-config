@@ -9,6 +9,7 @@ end
 # set -e fish_user_paths
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
+set -g async_prompt_functions _pure_prompt_git
 
 set -Ux EDITOR /usr/bin/nvim # set correct editor
 set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
@@ -21,6 +22,36 @@ set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
 zoxide init --cmd j fish | source # zoxide
+
+# # #2bbac5
+# set pure_color_primary 34e2e2
+# # #8ae234
+# set pure_color_success 8ae234
+# # #4e9a06
+# set pure_color_info 4e9a06
+# # #4e9a06
+# set pure_color_mute 4e9a06
+
+
+set --global hydro_symbol_prompt '→'
+set --global hydro_symbol_git_dirty '*'
+set --global fish_prompt_pwd_dir_length 100
+# set --global hydro_color_pwd
+
+
+set pure_enable_single_line_prompt true
+set pure_begin_prompt_with_current_directory true
+set pure_separate_prompt_on_error false
+set pure_show_prefix_root_prompt true
+set pure_threshold_command_duration 5
+set pure_symbol_prompt '→'
+set pure_symbol_git_unpulled_commits '↓'
+set pure_symbol_git_unpushed_commits '↑'
+set pure_symbol_git_stash ' '
+set pure_symbol_reverse_prompt '→'
+set pure_reverse_prompt_symbol_in_vimode true
+set pure_check_for_new_release false
+set pure_show_subsecond_command_duration true
 
 # ----------------------- #
 #       FUNCTIONS
