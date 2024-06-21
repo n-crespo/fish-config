@@ -104,9 +104,17 @@ end
 set parent_process (ps -o ppid= -p $fish_pid)
 set parent_process (string trim $parent_process)
 set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
+set -l prev_command (history | head -n 1 | string trim)
+
 if test "$parent_process" = su
-    skey >/dev/null 2>&1
-    # echo "ssh-key added!"
+    # Check if the previous command was 'so'
+    if test "$prev_command" != so
+        skey >/dev/null 2>&1
+        echo "ssh-key added!"
+    else
+        echo "$prev_command"
+        echo "Previous command was 'so', skipping skey addition."
+    end
 end
 
 function server
@@ -120,38 +128,6 @@ function e
         cd -- "$cwd"
     end
     /bin/rm -f -- "$tmp"
-end
-
-function fzf_jobs
-    # Get the commands associated with each job
-    set -l job_commands (jobs -c)
-
-    # Check if there are any jobs
-    if test (count $job_commands) -eq 0
-        echo "No jobs found."
-        return
-    end
-
-    # Prepare preview command to show both job command and working directory
-    set preview_command "
-        begin
-            set job_specifier (echo {} | awk '{print \$1}')
-
-            set command (jobs -c | grep \$job_specifier)
-            if test -n \"\$command\"
-                set pid (string sub -b 1 (echo \$command | awk '{print \$1}'))
-                echo \"PID: \$pid\"
-                echo \"Command: \$command\"
-                echo \"Working Directory: (pwdx \$pid | awk '{print \$2}')\"
-            else
-                echo \"Command: No command found\"
-                echo \"Working Directory: No working directory found\"
-            end
-        end
-    "
-
-    # Combine job commands into a format suitable for fzf
-    jobs -c | fzf --height=20 --reverse --preview="$preview_command"
 end
 
 # ----------------------- #
@@ -220,38 +196,18 @@ abbr ff fastfetch
 #       KEYBINDINGS
 # ----------------------- #
 
-# Define a function to list jobs, use fzf to select one, and preview the job details
-function select_job_with_fzf
-    # Get the list of jobs with their job IDs and commands
-    set -l jobs_list (jobs)
-
-    # Check if there are any jobs available
-    if test (count $jobs_list) -eq 0
-        echo "no jobs available"
-        return
-    end
-
-    # Format jobs list for fzf and use fzf to select a job set -l selected_job (jobs | fzf --preview 'ps -fp {1}' --preview-window=right:50%)
-
-    # Extract the job ID from the selected job
-    set -l job_id (echo $selected_job | awk '{print $1}')
-
-    # Bring the selected job to the foreground
-    if test -n "$job_id"
-        fg %$job_id
-    end
-
-    commandline -f repaint
-end
-
 # Bind Ctrl + Z to the select_job_with_fzf function
-bind -M insert \cz "select_job_with_fzf;commandline -f repaint"
+# bind -M insert \cz "select_job_with_fzf;commandline -f repaint"
 
+bind -M insert \cz "fzf_jobs;commandline -f repaint"
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
 bind -M insert \cE suppress-autosuggestion
 # below lines for fzf zoxide
 bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
+bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
+# bind \cg 'git diff; commandline -f repaint'
+# bind -M insert \cc kill-whole-line repaint
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
