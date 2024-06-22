@@ -9,7 +9,7 @@ end
 # set -e fish_user_paths
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /user/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
-set -g async_prompt_functions _pure_prompt_git
+# set -g async_prompt_functions _pure_prompt_git
 
 set -Ux EDITOR /usr/bin/nvim # set correct editor
 set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
@@ -25,14 +25,13 @@ zoxide init --cmd j fish | source # zoxide
 theme_tokyonight storm
 
 # # #2bbac5
-# set pure_color_primary 34e2e2
+set pure_color_primary 34e2e2
 # # #8ae234
-# set pure_color_success 8ae234
+set pure_color_success 8ae234
 # # #4e9a06
-# set pure_color_info 4e9a06
+set pure_color_info 4e9a06
 # # #4e9a06
-# set pure_color_mute 4e9a06
-
+set pure_color_mute 4e9a06
 
 # set --global hydro_symbol_prompt '→'
 set --global hydro_symbol_git_dirty '*'
@@ -55,8 +54,9 @@ set pure_symbol_reverse_prompt '❯'
 set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release false
-set pure_show_subsecond_command_duration true
+set pure_show_subsecond_command_duration false
 set pure_show_jobs true
+set lucid_skip_newline true
 
 # ----------------------- #
 #       FUNCTIONS
@@ -200,7 +200,7 @@ abbr ff fastfetch
 # Bind Ctrl + Z to the select_job_with_fzf function
 # bind -M insert \cz "select_job_with_fzf;commandline -f repaint"
 
-bind -M insert \cz "fzf_jobs;commandline -f repaint"
+bind -M insert \cz "fg; commandline -f repaint"
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
 # below lines for fzf zoxide
 bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
