@@ -108,13 +108,9 @@ set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
 set -l prev_command (history | head -n 1 | string trim)
 
 if test "$parent_process" = su
-    # Check if the previous command was 'so'
-    if test "$prev_command" != so
+    if not set -q SSH_AGENT_PID
         skey >/dev/null 2>&1
         echo "ssh-key added!"
-    else
-        echo "$prev_command"
-        echo "Previous command was 'so', skipping skey addition."
     end
 end
 
