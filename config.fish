@@ -161,6 +161,7 @@ alias csv csvlens
 alias rmm dos2unix
 alias nn /usr/bin/nvim
 alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
+alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias bd 'cd -'
 alias pbcopy 'xsel --input --clipboard'
