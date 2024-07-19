@@ -22,6 +22,7 @@ set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
 set -Ux TERM xterm-256color
+
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight storm
 
@@ -114,6 +115,12 @@ end
 #         echo "ssh-key added!"
 #     end
 # end
+
+# Check if SSH agent is already running
+if not set -q SSH_AUTH_SOCK
+    skey >/dev/null 2>&1
+    echo "ssh-key added!"
+end
 
 function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
