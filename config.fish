@@ -12,7 +12,7 @@ set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nic
 set -g async_prompt_functions _pure_prompt_git
 
 set -Ux EDITOR /usr/bin/nvim # set correct editor
-set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
+# set -Ux JAVA_HOME /usr/lib/jvm/jdk-17-oracle-x64
 set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
@@ -21,6 +21,7 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
+set -Ux TERM xterm-256color
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight storm
 
@@ -102,17 +103,17 @@ function g:
 end
 
 # # add ssh-key if shell is opened on startup, not in random shell instances
-set parent_process (ps -o ppid= -p $fish_pid)
-set parent_process (string trim $parent_process)
-set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
-set -l prev_command (history | head -n 1 | string trim)
+# set parent_process (ps -o ppid= -p $fish_pid)
+# set parent_process (string trim $parent_process)
+# set parent_process (ps -o comm -p $parent_process | tail -n +2 | grep -v '^$')
+# set -l prev_command (history | head -n 1 | string trim)
 
-if test "$parent_process" = su
-    if not set -q SSH_AGENT_PID
-        skey >/dev/null 2>&1
-        echo "ssh-key added!"
-    end
-end
+# if test "$parent_process" = su
+#     if not set -q SSH_AGENT_PID
+#         skey >/dev/null 2>&1
+#         echo "ssh-key added!"
+#     end
+# end
 
 function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
