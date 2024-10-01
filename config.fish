@@ -51,7 +51,7 @@ set pure_symbol_git_stash ' '
 set pure_symbol_reverse_prompt '❯'
 set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
-set pure_check_for_new_release false
+set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
 set pure_show_jobs true
 set lucid_skip_newline true
