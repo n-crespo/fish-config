@@ -99,6 +99,18 @@ function g:
     git push
 end
 
+function g13
+    set exec_name /tmp/(basename $argv[1] .cpp)
+    /usr/bin/g++-10 -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o $exec_name $argv[1]
+
+    # Only run the executable if compilation was successful
+    if test $status -eq 0
+        $exec_name
+    else
+        echo "Compilation failed."
+    end
+end
+
 function server
     browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
 end
