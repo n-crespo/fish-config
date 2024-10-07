@@ -163,7 +163,7 @@ alias l 'ls -l --group-directories-first --git -a'
 alias lt 'ls --tree' # tree
 alias p "ps aux | grep " # Search running processes
 alias f "find . | grep " # Search files in the current folder
-alias exp 'wsl-open .' # wsl specific, open explorer in cwd
+alias exp 'open .' # wsl specific, open explorer in cwd
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias nala 'sudo nala'
 alias csv csvlens
