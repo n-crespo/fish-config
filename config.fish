@@ -82,7 +82,7 @@ function mdtodocx
 end
 
 function rcpp
-    g++ *.cpp -o /tmp/main && /tmp/main
+    clang++ *.cpp -o /tmp/main && /tmp/main
 end
 
 function rjava
