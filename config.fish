@@ -142,6 +142,10 @@ function prepend_command
     commandline -C (math $old_cursor + (echo $prepend | wc -c))
 end
 
+function mkdir
+    command mkdir $argv; and cd $argv[1]
+end
+
 # ----------------------- #
 #        ALIASES
 # ----------------------- #
