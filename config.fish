@@ -99,7 +99,7 @@ function g:
     git push
 end
 
-function g13
+function g31
     set exec_name /tmp/(basename $argv[1] .cpp)
     /usr/bin/g++-10 -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o $exec_name $argv[1]
 
