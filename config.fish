@@ -8,11 +8,11 @@ end
 
 # set -e fish_user_paths
 set -e fish_user_paths
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server /home/nicolas/.local/bin
 set -g async_prompt_functions _pure_prompt_git
 
-set -Ux EDITOR /usr/bin/nvim # set correct editor
-set -gx EDITOR nvim # set correct editor
+set -Ux EDITOR /home/linuxbrew/.linuxbrew/bin/nvim # set correct editor
+set -gx EDITOR /home/linuxbrew/.linuxbrew/bin/nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
