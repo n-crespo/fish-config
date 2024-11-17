@@ -142,6 +142,20 @@ function prepend_command
     commandline -C (math $old_cursor + (echo $prepend | wc -c))
 end
 
+# function store_last_dir --on-event fish_exit
+#     echo "Storing directory: $PWD"
+#     echo $PWD >~/.last_dir
+# end
+# #
+#
+# function s
+#     if test -f ~/.last_dir
+#         echo "Restoring directory: $(cat ~/.last_dir)"
+#         cd (cat ~/.last_dir)
+#     end
+# end
+
+#
 # ----------------------- #
 #        ALIASES
 # ----------------------- #
@@ -171,7 +185,7 @@ alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
-alias vim nvim
+# alias vim nvim
 
 # ----------------------- #
 #     ABBREVIATIONS
