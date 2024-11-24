@@ -219,8 +219,8 @@ bind -M insert \cz "fg; commandline -f repaint"
 bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
 
 # below lines for fzf zoxide
-bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
-bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
+# bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
+# bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 
 bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
 bind -M insert \cE "e; commandline -f repaint"
