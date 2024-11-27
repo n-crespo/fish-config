@@ -8,7 +8,7 @@ end
 
 # set -e fish_user_paths
 set -e fish_user_paths
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server /home/nicolas/.local/bin
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin
 set -g async_prompt_functions _pure_prompt_git
 
 set -Ux EDITOR /home/linuxbrew/.linuxbrew/bin/nvim # set correct editor
@@ -19,7 +19,7 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
-set -Ux JAVA_HOME /usr/lib/jvm/java-1.11.0-openjdk-amd64/
+set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight night
