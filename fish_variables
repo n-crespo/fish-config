@@ -16,7 +16,6 @@ SETUVAR --export TERM:xterm\x2d256color
 SETUVAR --export TOKYONIGHT:night
 SETUVAR __fish_initialized:3400
 SETUVAR __tf_vers:\x1d
-SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_cls:clear
 SETUVAR _fish_abbr_dc:cd
 SETUVAR _fish_abbr_dotbash:nvim\x20\x2dd\x20/root/\x2ebashrc\x20\x7e/dot\x2dfiles/bash/\x2ebashrc
