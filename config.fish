@@ -205,6 +205,7 @@ abbr n. 'nvim .'
 abbr v vim
 abbr g git
 abbr q exit
+abbr c clear
 abbr sl ls
 abbr dc cd
 abbr weather 'curl wttr.in'
