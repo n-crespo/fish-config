@@ -99,8 +99,6 @@ function g:
     git push
 end
 
-alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
-
 # function g31
 #     for file in $argv
 #         # Check if file is a valid cpp file
@@ -151,18 +149,6 @@ function prepend_command
     commandline -C (math $old_cursor + (echo $prepend | wc -c))
 end
 
-# function store_last_dir --on-event fish_exit
-#     echo "Storing directory: $PWD"
-#     echo $PWD >~/.last_dir
-# end
-# #
-#
-# function s
-#     if test -f ~/.last_dir
-#         echo "Restoring directory: $(cat ~/.last_dir)"
-#         cd (cat ~/.last_dir)
-#     end
-# end
 
 #
 # ----------------------- #
@@ -194,8 +180,11 @@ alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
-alias focus 'nc towel.blinkenlights.nl 23'
-alias focus! 'nc towel.blinkenlights.nl 23'
+alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
+alias focus 'echo -e "\e[?25l";nc towel.blinkenlights.nl 23'
+alias focus! 'echo -e "\e[?25l"telnet towel.blinkenlights.nl'
+alias restore_cursor 'echo -e "\e[?25h"'
+
 # alias vim nvim
 
 # ----------------------- #
