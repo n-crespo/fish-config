@@ -182,7 +182,7 @@ alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'echo -e "\e[?25l";nc towel.blinkenlights.nl 23'
-alias focus! 'echo -e "\e[?25l"telnet towel.blinkenlights.nl'
+alias focus! 'echo -e "\e[?25l";telnet towel.blinkenlights.nl'
 alias restore_cursor 'echo -e "\e[?25h"'
 
 # alias vim nvim
