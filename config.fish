@@ -11,14 +11,14 @@ set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin
 set -g async_prompt_functions _pure_prompt_git
 
-set -Ux EDITOR /home/linuxbrew/.linuxbrew/bin/nvim # set correct editor
-set -gx EDITOR /home/linuxbrew/.linuxbrew/bin/nvim # set correct editor
+set -Ux EDITOR nvim # set correct editor
+set -gx EDITOR nvim # set correct editor
 set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
-set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden"
+set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 
 zoxide init --cmd j fish | source # zoxide
@@ -186,6 +186,7 @@ alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
+alias r 'echo -e "\e[?25h"' # Restore cursor
 
 # alias vim nvim
 
