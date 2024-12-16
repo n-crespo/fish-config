@@ -221,6 +221,8 @@ bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
 bind -M insert \cE "e; commandline -f repaint"
 bind -M insert \cS "prepend_command sudo"
 
+# bind -M insert \co 'nvim (tv)'
+
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 # if test -f /home/nicolas/miniconda3/bin/conda
