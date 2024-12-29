@@ -99,6 +99,11 @@ function g:
     git push
 end
 
+function gc:
+    git add .
+    git commit -m "$argv"
+end
+
 # function g31
 #     for file in $argv
 #         # Check if file is a valid cpp file
