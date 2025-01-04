@@ -8,7 +8,7 @@ end
 
 # set -e fish_user_paths
 set -e fish_user_paths
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/
 set -g async_prompt_functions _pure_prompt_git
 
 set -Ux EDITOR nvim # set correct editor
@@ -48,8 +48,8 @@ set pure_enable_git true # this can be disable to make things faster but async d
 set pure_symbol_git_unpulled_commits '↓'
 set pure_symbol_git_unpushed_commits '↑'
 set pure_symbol_git_stash ' '
-set pure_symbol_reverse_prompt '❯'
-set pure_symbol_reverse_prompt '❮'
+# set pure_symbol_reverse_prompt '❯'
+# set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
@@ -157,7 +157,6 @@ end
 function notify-send
     /mnt/c/Users/nicol/OneDrive/Desktop/Applications/wsl-notify-send.exe --category $WSL_DISTRO_NAME "$argv"
 end
-
 
 #
 # ----------------------- #
