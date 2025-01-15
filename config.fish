@@ -23,6 +23,7 @@ set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
+set -Ux LANG en_US.UTF-8
 
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight night
@@ -52,7 +53,7 @@ set pure_symbol_git_unpulled_commits '↓'
 set pure_symbol_git_unpushed_commits '↑'
 set pure_symbol_git_stash ' '
 # set pure_symbol_reverse_prompt '❯'
-# set pure_symbol_reverse_prompt '❮'
+set pure_symbol_reverse_prompt '❮'
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
