@@ -24,6 +24,8 @@ set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -prin
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set -Ux LANG en_US.UTF-8
+# set -Ux LC_CTYPE en_US.UTF-8
+# set -Ux LC_ALL en_US.UTF-8
 
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight night
@@ -188,7 +190,7 @@ alias exp 'open .' # wsl specific, open explorer in cwd
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias nala 'sudo nala'
 alias csv csvlens
-alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
+alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe -WorkingDirectory C:/Users/nicol"
 alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
