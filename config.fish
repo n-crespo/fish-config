@@ -229,6 +229,8 @@ bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autos
 bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
 bind -M insert \cE "e; commandline -f repaint"
 bind -M insert \cS "prepend_command sudo"
+bind -M insert \cP history-search-backward
+bind -M insert \cN history-search-forward
 
 # bind -M insert \co 'nvim (tv)'
 
