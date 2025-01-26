@@ -9,23 +9,22 @@ end
 # set -e fish_user_paths
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
-
 set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 set -g async_prompt_functions _pure_prompt_git
-
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
-set -Ux FZF_DEFAULT_OPTS "--height 100% --no-preview "
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
+set -Ux FZF_DEFAULT_OPTS "--height 50%  --layout=reverse --border --info=inline"
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
-set -Ux LANG en_US.UTF-8
-# set -Ux LC_CTYPE en_US.UTF-8
-# set -Ux LC_ALL en_US.UTF-8
+set SHELL /bin/bash # sym link to brew installed fish
+set LANG en_US.utf8
+set -Ux LC_CTYPE en_US.UTF8
+set -Ux LC_ALL en_US.UTF8
 
 zoxide init --cmd j fish | source # zoxide
 theme_tokyonight night
