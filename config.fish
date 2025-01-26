@@ -196,6 +196,7 @@ alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
 alias r 'echo -e "\e[?25h"' # Restore cursor
+alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 
 # alias vim nvim
 
