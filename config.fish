@@ -17,8 +17,8 @@ set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
-set -Ux FZF_DEFAULT_OPTS "--height 50%  --layout=reverse --border --info=inline"
-set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f -print"
+set -Ux FZF_DEFAULT_OPTS "--height 50%  --layout=reverse --border --info=inline 2>/dev/tty"
+set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set SHELL /bin/bash # sym link to brew installed fish
@@ -27,16 +27,16 @@ set -Ux LC_CTYPE en_US.UTF8
 set -Ux LC_ALL en_US.UTF8
 
 zoxide init --cmd j fish | source # zoxide
-theme_tokyonight night
+# theme_tokyonight night
 
-# # #2bbac5
-set pure_color_primary 34e2e2
-# # #8ae234
-set pure_color_success 8ae234
-# # #4e9a06
-set pure_color_info 4e9a06
-# # #4e9a06
-set pure_color_mute 4e9a06
+# # #7fb4ca
+set pure_color_primary 7fb4ca
+# # #98bb6c
+set pure_color_success 98bb6c
+# # #76946a
+set pure_color_info 76946a
+# # #76946a
+set pure_color_mute 76946a
 
 set --global hydro_symbol_git_dirty '*'
 set --global fish_prompt_pwd_dir_length 100
