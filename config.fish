@@ -214,6 +214,7 @@ abbr dc cd
 abbr weather 'curl wttr.in'
 abbr n nvim
 abbr ff fastfetch
+abbr c clear
 
 # ----------------------- #
 #       KEYBINDINGS
