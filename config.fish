@@ -25,6 +25,7 @@ set SHELL /bin/bash # sym link to brew installed fish
 set LANG en_US.utf8
 set -Ux LC_CTYPE en_US.UTF8
 set -Ux LC_ALL en_US.UTF8
+set -Ux LSANTIONS verbosity=1:log_threads=1
 
 zoxide init --cmd j fish | source # zoxide
 # theme_tokyonight night
@@ -88,6 +89,10 @@ end
 
 function rcpp
     clang++ *.cpp -o /tmp/main && /tmp/main
+end
+
+function dcpp
+    g++ -g *.cpp -o main
 end
 
 function rjava
@@ -192,10 +197,10 @@ alias csv csvlens
 alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe -WorkingDirectory C:/Users/nicol"
 alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
+alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
-alias r 'echo -e "\e[?25h"' # Restore cursor
 alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 
 # alias vim nvim
@@ -232,6 +237,8 @@ bind -M insert \cE "e; commandline -f repaint"
 bind -M insert \cS "prepend_command sudo"
 bind -M insert \cP history-search-backward
 bind -M insert \cN history-search-forward
+bind -M insert \ca beginning-of-line
+bind -M insert \ce end-of-line
 
 # bind -M insert \co 'nvim (tv)'
 
