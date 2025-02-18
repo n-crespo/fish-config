@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export 0:\x1d
+SETUVAR --export DISPLAY:\x3a0
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dheight\x2050\x25\x20\x20\x2d\x2dlayout\x3dreverse\x20\x2d\x2dborder\x20\x2d\x2dinfo\x3dinline\x202\x3e/dev/tty
 SETUVAR FZF_DISABLE_KEYBINDINGS:0
