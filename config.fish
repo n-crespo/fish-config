@@ -21,7 +21,7 @@ set -Ux FZF_DEFAULT_OPTS "--height 50%  --layout=reverse --border --info=inline 
 set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f"
 set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
-set SHELL /bin/bash # sym link to brew installed fish
+set SHELL /bin/bash
 set LANG en_US.utf8
 set -Ux LC_CTYPE en_US.UTF8
 set -Ux LC_ALL en_US.UTF8
