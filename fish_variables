@@ -15,7 +15,6 @@ SETUVAR --export JAVA_HOME:/home/linuxbrew/\x2elinuxbrew/Cellar/openjdk\x4017/17
 SETUVAR --export LANG:en_US\x2eutf8
 SETUVAR --export LC_ALL:en_US\x2eUTF8
 SETUVAR --export LC_CTYPE:en_US\x2eUTF8
-SETUVAR --export --path LD_LIBRARY_PATH:/usr/lib/jvm/java\x2d1\x2e11\x2e0\x2dopenjdk\x2damd64/lib/server
 SETUVAR --export LSANTIONS:verbosity\x3d1\x3alog_threads\x3d1
 SETUVAR --export SHELL:/bin/fish
 SETUVAR --export TERM:xterm\x2d256color
