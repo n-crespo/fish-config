@@ -10,10 +10,7 @@ end
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
 set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
-# set -Ux LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu $LD_LIBRARY_PATH
-# set -Ux LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/ $LD_LIBRARY_PATH
-# set -Ux LD_LIBRARY_PATH /usr/lib $LD_LIBRARY_PATH
-# export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
+set -Ux LD_LIBRARY_PATH /usr/lib
 set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 set -g async_prompt_functions _pure_prompt_git
 set -Ux EDITOR nvim # set correct editor
