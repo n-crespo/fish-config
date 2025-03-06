@@ -89,7 +89,12 @@ function mdtodocx
 end
 
 function rcpp
-    clang++ *.cpp -o /tmp/main && /tmp/main
+    if test (count $argv) -eq 0
+        set files *.cpp
+    else
+        set files $argv[1]
+    end
+    clang++ $files -o /tmp/main && /tmp/main
 end
 
 function dcpp

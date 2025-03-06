@@ -19,7 +19,6 @@ SETUVAR --export --path LD_LIBRARY_PATH:/usr/lib
 SETUVAR --export LSANTIONS:verbosity\x3d1\x3alog_threads\x3d1
 SETUVAR --export SHELL:/bin/fish
 SETUVAR --export TERM:xterm\x2d256color
-SETUVAR --export TOKYONIGHT:night
 SETUVAR __fish_initialized:3800
 SETUVAR __tf_vers:\x1d
 SETUVAR _fish_abbr_cls:clear
