@@ -8,7 +8,7 @@ end
 
 # set -e fish_user_paths
 set -e fish_user_paths
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/julia-1.8.1/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
 set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 set -Ux LD_LIBRARY_PATH /usr/lib
 set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
