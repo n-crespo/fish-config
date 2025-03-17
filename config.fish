@@ -214,7 +214,8 @@ alias exp 'open .' # wsl specific, open explorer in cwd
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias nala 'sudo nala'
 alias csv csvlens
-alias win "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe -WorkingDirectory C:/Users/nicol"
+# C:\Users\nicol\AppData\Local\Microsoft\WindowsApps\pwsh.exe
+alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
 alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
 alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
@@ -222,6 +223,9 @@ alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
 alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
+alias n nvim
+alias n. "nvim ."
+alias diskspace "du -Sh | sort -n -r |more"
 
 # alias vim nvim
 
@@ -230,14 +234,13 @@ alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 # ----------------------- #
 
 abbr lg lazygit
-abbr n. 'nvim .'
+# abbr n. 'nvim .'
 abbr v vim
 abbr g git
 abbr q exit
 abbr sl ls
 abbr dc cd
 abbr weather 'curl wttr.in'
-abbr n nvim
 abbr ff fastfetch
 abbr c clear
 
