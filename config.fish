@@ -187,6 +187,14 @@ function gh-create
     gh browse
 end
 
+function z
+    set selected_repo (zoxide query --list | fzf --ansi --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}")
+
+    if test -n "$selected_repo"
+        cd "$selected_repo" && nvim
+    end
+end
+
 #
 # ----------------------- #
 #        ALIASES
@@ -248,22 +256,30 @@ abbr c clear
 #       KEYBINDINGS
 # ----------------------- #
 
+# <C-z> does fg
 bind -M insert \cz "fg; commandline -f repaint"
-bind -M insert \e\[13\;5u accept-autosuggestion # control-enter for accept-autosuggestion
+
+# control-enter to accept-autosuggestion
+bind -M insert \e\[13\;5u accept-autosuggestion
 
 # below lines for fzf zoxide
 # bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 # bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
 
-bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
-bind -M insert \cE "e; commandline -f repaint"
+# use <M-BS> for clearing line
+bind -M insert \e\x7F kill-whole-line repaint
+
+# prepend sudo to last command
 bind -M insert \cS "prepend_command sudo"
+
+# standard nav keymaps
 bind -M insert \cP history-search-backward
 bind -M insert \cN history-search-forward
 bind -M insert \ca beginning-of-line
 bind -M insert \ce end-of-line
 
-# bind -M insert \co 'nvim (tv)'
+# jump to directory and start nvim session
+bind -M insert \cj "z;commandline -f repaint"
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
