@@ -28,17 +28,13 @@ set -Ux LC_CTYPE en_US.UTF8
 set -Ux LC_ALL en_US.UTF8
 set -Ux LSANTIONS verbosity=1:log_threads=1
 
-zoxide init --cmd j fish | source # zoxide
+zoxide init --cmd j fish | source # zoxide with j as alias
 # theme_tokyonight night
 
-# # #7fb4ca
-set pure_color_primary 7fb4ca
-# # #98bb6c
-set pure_color_success 98bb6c
-# # #76946a
-set pure_color_info 76946a
-# # #76946a
-set pure_color_mute 76946a
+set pure_color_primary blue
+set pure_color_success brgreen
+set pure_color_info green
+set pure_color_mute green
 
 set --global hydro_symbol_git_dirty '*'
 set --global fish_prompt_pwd_dir_length 100
