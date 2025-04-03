@@ -18,9 +18,7 @@ set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
-set -Ux FZF_DEFAULT_OPTS "--height 50%  --layout=reverse --border --info=inline 2>/dev/tty"
-set -Ux FZF_FIND_FILE_COMMAND "find . -type d -name .git -prune -o -type f"
-set -Ux FZF_OPEN_COMMAND "fd --type f --exclude .git --hidden --no-ignore"
+set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set SHELL /bin/bash
 set LANG en_US.utf8
@@ -116,29 +114,6 @@ function gc:
     git commit -m "$argv"
 end
 
-# function g31
-#     for file in $argv
-#         # Check if file is a valid cpp file
-#         if test -f $file
-#             set exec_name /tmp/(basename $file .cpp)
-#             /usr/bin/g++-10 -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o $exec_name $file
-#
-#             # Only run the executable if compilation was successful
-#             if test $status -eq 0
-#                 $exec_name
-#             else
-#                 echo "Compilation failed for $file."
-#             end
-#         else
-#             echo "$file is not a valid file."
-#         end
-#     end
-# end
-
-function server
-    browser-sync start --no-open --server --files "src/*.css, *.html, src/*.js" &
-end
-
 function e
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -146,24 +121,6 @@ function e
         cd -- "$cwd"
     end
     /bin/rm -f -- "$tmp"
-end
-
-function prepend_command
-    set -l prepend $argv[1]
-    if test -z "$prepend"
-        echo "prepend_command needs one argument."
-        return 1
-    end
-
-    set -l cmd (commandline)
-    if test -z "$cmd"
-        commandline -r $history[1]
-    end
-
-    set -l old_cursor (commandline -C)
-    commandline -C 0
-    commandline -i "$prepend "
-    commandline -C (math $old_cursor + (echo $prepend | wc -c))
 end
 
 function notify-send
@@ -184,10 +141,34 @@ function gh-create
 end
 
 function z
-    set selected_repo (zoxide query --list | fzf --ansi --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}")
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}")
 
     if test -n "$selected_repo"
         cd "$selected_repo" && nvim
+    end
+end
+
+function z_open
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50%  --layout=reverse --preview "bat --color=always --plain --line-range=:50 {}")
+
+    if test -n "$selected_file"
+        nvim "$selected_file"
+    end
+end
+
+function history_search
+    set selected_command (history | fzf --ansi  --height=50%)
+
+    if test -n "$selected_command"
+        commandline -r "$selected_command"
+        # commandline -f execute
+    end
+end
+
+function insert_file
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse)
+    if tes -n "$selected_file"
+        commandline -i "$selected_file"
     end
 end
 
@@ -265,8 +246,8 @@ bind -M insert \e\[13\;5u accept-autosuggestion
 # use <M-BS> for clearing line
 bind -M insert \e\x7F kill-whole-line repaint
 
-# prepend sudo to last command
-bind -M insert \cS "prepend_command sudo"
+# prepend sudo to last command with ctrl+s
+bind -M insert \cS __fish_prepend_sudo
 
 # standard nav keymaps
 bind -M insert \cP history-search-backward
@@ -274,8 +255,13 @@ bind -M insert \cN history-search-forward
 bind -M insert \ca beginning-of-line
 bind -M insert \ce end-of-line
 
-# jump to directory and start nvim session
-bind -M insert \cj "z;commandline -f repaint"
+# FZF Keymaps
+bind -M insert \cj "z;commandline -f repaint" # jump to directory and start nvim session
+bind -M insert \ct "insert_file; commandline -f repaint" # insert file
+bind -M insert \co "z_open;commandline -f repaint" # open file
+bind -M insert \cr "history_search;commandline -f repaint" # search history
+
+# NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -289,5 +275,3 @@ bind -M insert \cj "z;commandline -f repaint"
 #     end
 # end
 ## <<< conda initialize <<<
-
-# NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
