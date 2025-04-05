@@ -167,7 +167,7 @@ end
 
 function insert_file
     set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse)
-    if tes -n "$selected_file"
+    if test -n "$selected_file"
         commandline -i "$selected_file"
     end
 end
