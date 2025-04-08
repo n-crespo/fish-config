@@ -140,16 +140,19 @@ function gh-create
     gh browse
 end
 
-function z
-    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}")
+function z -a open
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}" --header (if test $open = "true"; echo "LOAD SESSION at dir"; else; echo "JUMP to dir"; end))
 
     if test -n "$selected_repo"
-        cd "$selected_repo" && nvim
+        cd "$selected_repo"
+        if test "$open" = true
+            nvim
+        end
     end
 end
 
 function z_open
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50%  --layout=reverse --preview "bat --color=always --plain --line-range=:50 {}")
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50%  --layout=reverse --preview "bat --color=always --plain --line-range=:50 {}" --header "OPEN selected file")
 
     if test -n "$selected_file"
         nvim "$selected_file"
@@ -207,7 +210,7 @@ alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
-alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
+# alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 alias n nvim
 alias n. "nvim ."
 alias diskspace "du -Sh | sort -n -r |more"
@@ -256,7 +259,8 @@ bind -M insert \ca beginning-of-line
 bind -M insert \ce end-of-line
 
 # FZF Keymaps
-bind -M insert \cj "z;commandline -f repaint" # jump to directory and start nvim session
+bind -M insert \cj "z false;commandline -f repaint" # jump to directory
+bind -M insert \ck "z true;commandline -f repaint" # jump to directory and start nvim session
 bind -M insert \ct "insert_file; commandline -f repaint" # insert file
 bind -M insert \co "z_open;commandline -f repaint" # open file
 bind -M insert \cr "history_search;commandline -f repaint" # search history
