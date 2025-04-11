@@ -181,6 +181,7 @@ end
 # ----------------------- #
 
 alias gs 'git status -s'
+alias gl 'lazygit log'
 alias so 'source ~/.config/fish/config.fish'
 alias cp 'cp -i'
 alias mv 'mv -i'
