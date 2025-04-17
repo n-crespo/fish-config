@@ -175,6 +175,11 @@ function insert_file
     end
 end
 
+function restore
+    commandline -f repaint
+    printf '\e[6 q'
+end
+
 #
 # ----------------------- #
 #        ALIASES
@@ -260,11 +265,11 @@ bind -M insert \ca beginning-of-line
 bind -M insert \ce end-of-line
 
 # FZF Keymaps
-bind -M insert \cj "z false;commandline -f repaint" # jump to directory
-bind -M insert \ck "z true;commandline -f repaint" # jump to directory and start nvim session
+bind -M insert \cj "z false;restore;" # jump to directory
+bind -M insert \ck "z true;restore" # jump to directory and start nvim session
+bind -M insert \co "z_open;restore" # open file
+bind -M insert \cr "history_search;restore" # search history
 bind -M insert \ct "insert_file; commandline -f repaint" # insert file
-bind -M insert \co "z_open;commandline -f repaint" # open file
-bind -M insert \cr "history_search;commandline -f repaint" # search history
 
 # NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
 
