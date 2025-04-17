@@ -141,7 +141,8 @@ function gh-create
 end
 
 function z -a open
-    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse --preview "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}" --header (if test $open = "true"; echo "LOAD SESSION at dir"; else; echo "JUMP to dir"; end))
+    set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header (if test $open = "true"; echo "LOAD SESSION at dir"; else; echo "JUMP to dir"; end))
 
     if test -n "$selected_repo"
         cd "$selected_repo"
@@ -152,7 +153,8 @@ function z -a open
 end
 
 function z_open
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50%  --layout=reverse --preview "bat --color=always --plain --line-range=:50 {}" --header "OPEN selected file")
+    set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "OPEN selected file")
 
     if test -n "$selected_file"
         nvim "$selected_file"
@@ -160,7 +162,7 @@ function z_open
 end
 
 function history_search
-    set selected_command (history | fzf --ansi  --height=50%)
+    set selected_command (history | fzf --ansi --height=50% --bind "ctrl-p:toggle-preview")
 
     if test -n "$selected_command"
         commandline -r "$selected_command"
@@ -169,12 +171,12 @@ function history_search
 end
 
 function insert_file
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse)
+    set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
     if test -n "$selected_file"
         commandline -i "$selected_file"
     end
 end
-
 function restore
     commandline -f repaint
     printf '\e[6 q'
