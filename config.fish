@@ -193,8 +193,8 @@ alias mv 'mv -i'
 alias rm 'trash -v'
 alias \\rm 'command rm'
 alias mkdir 'mkdir -p'
-alias psa 'ps auxf'
-alias pst 'pstree -a'
+alias psaa 'ps auxf'
+alias psa pstree
 alias .. 'cd ..'
 alias .. 'cd ..'
 alias ... 'cd ../..'
@@ -220,7 +220,7 @@ alias focus 'cbonsai -i -l --time=0.1 --life=50'
 # alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 alias n nvim
 alias n. "nvim ."
-alias diskspace "du -Sh | sort -n -r |more"
+alias diskspace "du -Sh | sort -n -r"
 
 # alias vim nvim
 
@@ -229,7 +229,6 @@ alias diskspace "du -Sh | sort -n -r |more"
 # ----------------------- #
 
 abbr lg lazygit
-# abbr n. 'nvim .'
 abbr v vim
 abbr g git
 abbr q exit
