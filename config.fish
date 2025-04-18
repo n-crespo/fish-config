@@ -25,6 +25,7 @@ set LANG en_US.utf8
 set -Ux LC_CTYPE en_US.UTF8
 set -Ux LC_ALL en_US.UTF8
 set -Ux LSANTIONS verbosity=1:log_threads=1
+export MANPAGER="nvim +Man!"
 
 zoxide init --cmd j fish | source # zoxide with j as alias
 # theme_tokyonight night
