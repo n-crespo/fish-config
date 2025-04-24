@@ -143,7 +143,7 @@ end
 
 function z -a open
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
-    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header (if test $open = "true"; echo "LOAD SESSION at dir"; else; echo "JUMP to dir"; end))
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header (if test $open = "true"; echo "neovim at dir"; else; echo "jump to dir"; end))
 
     if test -n "$selected_repo"
         cd "$selected_repo"
@@ -155,7 +155,7 @@ end
 
 function z_open
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "OPEN selected file")
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
 
     if test -n "$selected_file"
         nvim "$selected_file"
