@@ -20,6 +20,7 @@ set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
+set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set SHELL /bin/bash
 set LANG en_US.utf8
@@ -156,7 +157,7 @@ end
 
 function z_open
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
+    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
 
     if test -n "$selected_file"
         nvim "$selected_file"
@@ -174,7 +175,7 @@ end
 
 function insert_file
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
-    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
+    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
     if test -n "$selected_file"
         commandline -i "$selected_file"
     end
@@ -225,6 +226,8 @@ alias focus 'cbonsai -i -l --time=0.1 --life=50'
 alias n nvim
 alias n. "nvim ."
 alias diskspace "du -Sh | sort -n -r"
+alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
+alias senv "source .venv/bin/activate.fish"
 
 # alias vim nvim
 
