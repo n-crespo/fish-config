@@ -10,15 +10,16 @@ end
 set -Ux NVIM_FULL_CONFIG true
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
-set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
-set -Ux LD_LIBRARY_PATH /usr/lib
-set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
+# set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
+# set -Ux LD_LIBRARY_PATH /usr/lib
+# set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 set -g async_prompt_functions _pure_prompt_git
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
+set pure_symbol_title_bar_separator ":"
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
@@ -58,7 +59,6 @@ set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
 set pure_show_jobs true
-set lucid_skip_newline true
 
 # ----------------------- #
 #       FUNCTIONS
