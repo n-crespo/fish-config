@@ -191,7 +191,7 @@ end
 # ----------------------- #
 
 alias gs 'git status -s'
-alias gl 'lazygit log'
+alias gl "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'" # just use lazygit atp
 alias so 'source ~/.config/fish/config.fish'
 alias cp 'cp -i'
 alias mv 'mv -i'
