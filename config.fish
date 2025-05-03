@@ -202,47 +202,50 @@ function gh-create
     gh browse
 end
 
-function z -a open
+function fzf_zoxide
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
-    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header (if test $open = "true"; echo "neovim at dir"; else; echo "jump to dir"; end))
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
+        --bind "ctrl-p:toggle-preview" \
+        --header "jump to directory")
 
     if test -n "$selected_repo"
         cd "$selected_repo"
-        if test "$open" = true
-            nvim
-        end
     end
+    restore
 end
 
-function z_open
+function fzf_open
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
     set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
 
     if test -n "$selected_file"
         nvim "$selected_file"
     end
+    restore
 end
 
-function history_search
+function fzf_history
     set selected_command (history | fzf --ansi --height=50% --bind "ctrl-p:toggle-preview")
 
     if test -n "$selected_command"
         commandline -r "$selected_command"
-        # commandline -f execute
     end
+    restore
 end
 
-function insert_file
+function fzf_insert
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
+
     set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
     if test -n "$selected_file"
         commandline -i "$selected_file"
     end
+    commandline -f repaint
 end
 
 function restore
     commandline -f repaint
-    printf '\e[6 q'
+    printf '\e[6 q' # restore cursor
 end
 
 # ----------------------- #
@@ -272,11 +275,10 @@ bind -M insert \ca beginning-of-line
 bind -M insert \ce end-of-line
 
 # FZF Keymaps
-bind -M insert \cj "z false;restore;" # jump to directory
-bind -M insert \ck "z true;restore" # jump to directory and start nvim session
-bind -M insert \co "z_open;restore" # open file
-bind -M insert \cr "history_search;restore" # search history
-bind -M insert \ct "insert_file; commandline -f repaint" # insert file
+bind -M insert \cj fzf_zoxide # jump to directory
+bind -M insert \co fzf_open # open file
+bind -M insert \cr fzf_history # search history
+bind -M insert \ct fzf_insert # insert file
 
 # NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
 
