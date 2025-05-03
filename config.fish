@@ -61,6 +61,65 @@ set pure_show_subsecond_command_duration false
 set pure_show_jobs true
 
 # ----------------------- #
+#        ALIASES
+# ----------------------- #
+
+alias gs 'git status -s'
+alias gl "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'" # just use lazygit atp
+alias so 'source ~/.config/fish/config.fish'
+alias cp 'cp -i'
+alias mv 'mv -i'
+alias rm 'trash -v'
+alias \\rm 'command rm'
+alias mkdir 'mkdir -p'
+alias psaa 'pstree -a'
+alias psa 'ps -eo user,pid,cmd --forest ww'
+alias .. 'cd ..'
+alias .. 'cd ..'
+alias ... 'cd ../..'
+alias .... 'cd ../../..'
+alias ls 'eza --icons=always --group-directories-first' # add colors and file type extensions
+alias la 'ls -Alh --group-directories-first' # show hidden files
+alias l 'ls -l --group-directories-first --git -a'
+alias lt 'ls --tree' # tree
+alias p "ps aux | grep " # Search running processes
+alias f "find . | grep " # Search files in the current folder
+alias exp 'open .' # wsl specific, open explorer in cwd
+alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
+alias nala 'sudo nala'
+alias csv csvlens
+# C:\Users\nicol\AppData\Local\Microsoft\WindowsApps\pwsh.exe
+alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
+alias wintop 'win --c "btop"'
+alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
+alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
+alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
+alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
+alias focus 'cbonsai -i -l --time=0.1 --life=50'
+# alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
+alias n nvim
+alias n. "nvim ."
+alias diskspace "du -Sh | sort -n -r"
+alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
+alias senv "source .venv/bin/activate.fish"
+
+# alias vim nvim
+
+# ----------------------- #
+#     ABBREVIATIONS
+# ----------------------- #
+
+abbr lg lazygit
+abbr v vim
+abbr g git
+abbr q exit
+abbr sl ls
+abbr dc cd
+abbr weather 'curl wttr.in'
+abbr ff fastfetch
+abbr c clear
+
+# ----------------------- #
 #       FUNCTIONS
 # ----------------------- #
 
@@ -180,70 +239,11 @@ function insert_file
         commandline -i "$selected_file"
     end
 end
+
 function restore
     commandline -f repaint
     printf '\e[6 q'
 end
-
-#
-# ----------------------- #
-#        ALIASES
-# ----------------------- #
-
-alias gs 'git status -s'
-alias gl "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'" # just use lazygit atp
-alias so 'source ~/.config/fish/config.fish'
-alias cp 'cp -i'
-alias mv 'mv -i'
-alias rm 'trash -v'
-alias \\rm 'command rm'
-alias mkdir 'mkdir -p'
-alias psaa 'pstree -a'
-alias psa 'ps -eo user,pid,cmd --forest ww'
-alias .. 'cd ..'
-alias .. 'cd ..'
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
-alias ls 'eza --icons=always --group-directories-first' # add colors and file type extensions
-alias la 'ls -Alh --group-directories-first' # show hidden files
-alias l 'ls -l --group-directories-first --git -a'
-alias lt 'ls --tree' # tree
-alias p "ps aux | grep " # Search running processes
-alias f "find . | grep " # Search files in the current folder
-alias exp 'open .' # wsl specific, open explorer in cwd
-alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
-alias nala 'sudo nala'
-alias csv csvlens
-# C:\Users\nicol\AppData\Local\Microsoft\WindowsApps\pwsh.exe
-alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
-alias wintop 'win --c "btop"'
-alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
-alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
-alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
-alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
-alias focus 'cbonsai -i -l --time=0.1 --life=50'
-# alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
-alias n nvim
-alias n. "nvim ."
-alias diskspace "du -Sh | sort -n -r"
-alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
-alias senv "source .venv/bin/activate.fish"
-
-# alias vim nvim
-
-# ----------------------- #
-#     ABBREVIATIONS
-# ----------------------- #
-
-abbr lg lazygit
-abbr v vim
-abbr g git
-abbr q exit
-abbr sl ls
-abbr dc cd
-abbr weather 'curl wttr.in'
-abbr ff fastfetch
-abbr c clear
 
 # ----------------------- #
 #       KEYBINDINGS
