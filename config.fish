@@ -102,6 +102,7 @@ alias n. "nvim ."
 alias diskspace "du -Sh | sort -n -r"
 alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
 alias senv "source .venv/bin/activate.fish"
+alias info 'info --vi-keys'
 
 # alias vim nvim
 
