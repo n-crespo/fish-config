@@ -207,10 +207,22 @@ function fzf_zoxide
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
     set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
         --bind "ctrl-p:toggle-preview" \
-        --header "jump to directory")
-
+        --header "jump to directory" \
+        --preview-window=hidden)
     if test -n "$selected_repo"
         cd "$selected_repo"
+    end
+    restore
+end
+
+function fzf_zoxide_nvim
+    set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
+    set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
+        --bind "ctrl-p:toggle-preview" \
+        --header "nvim at dir" \
+        --preview-window=hidden)
+    if test -n "$selected_repo"
+        nvim "$selected_repo"
     end
     restore
 end
@@ -218,7 +230,6 @@ end
 function fzf_open
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
     set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
-
     if test -n "$selected_file"
         nvim "$selected_file"
     end
@@ -258,6 +269,7 @@ bind -M insert \cz "fg; commandline -f repaint"
 
 # control-enter to accept-autosuggestion
 bind -M insert \e\[13\;5u accept-autosuggestion
+bind -M insert \t accept-autosuggestion
 
 # below lines for fzf zoxide
 # bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
@@ -277,6 +289,7 @@ bind -M insert \ce end-of-line
 
 # FZF Keymaps
 bind -M insert \cj fzf_zoxide # jump to directory
+bind -M insert \cf fzf_zoxide_nvim # jump to directory
 bind -M insert \co fzf_open # open file
 bind -M insert \cr fzf_history # search history
 bind -M insert \ct fzf_insert # insert file
