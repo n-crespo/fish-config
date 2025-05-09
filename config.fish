@@ -91,7 +91,7 @@ alias csv csvlens
 # C:\Users\nicol\AppData\Local\Microsoft\WindowsApps\pwsh.exe
 alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
 alias wintop 'win --c "btop"'
-alias powershell.exe "/mnt/c/Program\ Files/PowerShell/7/pwsh.exe"
+alias powershell.exe "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
 alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
