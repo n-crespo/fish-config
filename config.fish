@@ -97,8 +97,6 @@ alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
 # alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
-alias n nvim
-alias n. "nvim ."
 alias diskspace "du -Sh | sort -n -r"
 alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
 alias senv "source .venv/bin/activate.fish"
@@ -119,6 +117,8 @@ abbr dc cd
 abbr weather 'curl wttr.in'
 abbr ff fastfetch
 abbr c clear
+abbr n. "nvim ."
+abbr n nvim
 
 # ----------------------- #
 #       FUNCTIONS
@@ -269,7 +269,6 @@ bind -M insert \cz "fg; commandline -f repaint"
 
 # control-enter to accept-autosuggestion
 bind -M insert \e\[13\;5u accept-autosuggestion
-bind -M insert \t accept-autosuggestion
 
 # below lines for fzf zoxide
 # bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
