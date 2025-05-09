@@ -18,8 +18,10 @@ set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
-set fish_prompt_pwd_dir_length 0 # don't abbreviate paths in prompt
-set pure_symbol_title_bar_separator ":"
+set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
+set pure_symbol_title_bar_separator ""
+set pure_shorten_window_title_current_directory_length 1
+set pure_truncate_window_title_current_directory_keeps 1
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
@@ -215,14 +217,19 @@ function fzf_zoxide
     restore
 end
 
+# this just opens neovim at the selected directory. works nicely when you
+# configure neovim to auto-reload the last session when it is ran with no
+# arguments. See here:
+# https://github.com/n-crespo/nvim/blob/3a594a35f88f8e80beb0fd3e97a42940d6df8748/lua/plugins/persistence.lua#L18
 function fzf_zoxide_nvim
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
     set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
-        --bind "ctrl-p:toggle-preview" \
-        --header "nvim at dir" \
-        --preview-window=hidden)
+  --bind "ctrl-p:toggle-preview" \
+  --header "nvim at dir" \
+  --preview-window=hidden)
     if test -n "$selected_repo"
-        nvim "$selected_repo"
+        cd "$selected_repo"
+        nvim
     end
     restore
 end
@@ -265,7 +272,7 @@ end
 # ----------------------- #
 
 # <C-z> does fg
-bind -M insert \cz "fg; commandline -f repaint"
+bind -M insert \cz "fg;restore"
 
 # control-enter to accept-autosuggestion
 bind -M insert \e\[13\;5u accept-autosuggestion

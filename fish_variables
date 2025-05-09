@@ -62,6 +62,7 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR fish_prompt_pwd_dir_length:52
 SETUVAR --export fish_user_paths:/home/nicolas/\x2ecargo/bin/\x1e/home/linuxbrew/\x2elinuxbrew/opt/openjdk\x4017/include\x1e/home/nicolas/\x2elocal/bin\x1e/home/linuxbrew/\x2elinuxbrew/bin/\x1e/home/linuxbrew/\x2elinuxbrew/opt/glibc/lib\x1e/home/linuxbrew/\x2elinuxbrew/opt/glibc/sbin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:true
@@ -107,7 +108,7 @@ SETUVAR pure_enable_virtualenv:true
 SETUVAR pure_reverse_prompt_symbol_in_vimode:true
 SETUVAR pure_separate_prompt_on_error:false
 SETUVAR pure_shorten_prompt_current_directory_length:0
-SETUVAR pure_shorten_window_title_current_directory_length:0
+SETUVAR pure_shorten_window_title_current_directory_length:1
 SETUVAR pure_show_jobs:true
 SETUVAR pure_show_prefix_root_prompt:true
 SETUVAR pure_show_subsecond_command_duration:false
@@ -124,11 +125,11 @@ SETUVAR pure_symbol_prefix_root_prompt:\x23
 SETUVAR pure_symbol_prompt:\u276f
 SETUVAR pure_symbol_reverse_prompt:\u276e
 SETUVAR pure_symbol_ssh_prefix:
-SETUVAR pure_symbol_title_bar_separator:\x3a
+SETUVAR pure_symbol_title_bar_separator:
 SETUVAR pure_symbol_virtualenv_prefix:
 SETUVAR pure_threshold_command_duration:5
 SETUVAR pure_truncate_prompt_current_directory_keeps:0
-SETUVAR pure_truncate_window_title_current_directory_keeps:0
+SETUVAR pure_truncate_window_title_current_directory_keeps:1
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
