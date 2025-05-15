@@ -7,7 +7,7 @@ end
 # ----------------------- #
 
 # set -e fish_user_paths
-set -Ux NVIM_FULL_CONFIG true
+set -Ux NVIM_FULL_CONFIG 1
 set -e fish_user_paths
 set -Ux fish_user_paths $fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
