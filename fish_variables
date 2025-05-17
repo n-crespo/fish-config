@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export 0:\x1d
+SETUVAR --export CPPFLAGS:\x2dI/home/linuxbrew/\x2elinuxbrew/opt/glibc/include
 SETUVAR --export DISPLAY:\x3a0
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x2d\x2dhidden\x20\x2d\x2dexclude\x20\x2egit\x20\x2d\x2dexclude\x20\x2evenv
@@ -11,6 +12,7 @@ SETUVAR --export JAVA_HOME:/home/linuxbrew/\x2elinuxbrew/Cellar/openjdk\x4017/17
 SETUVAR --export LANG:en_US\x2eutf8
 SETUVAR --export LC_ALL:en_US\x2eUTF8
 SETUVAR --export LC_CTYPE:en_US\x2eUTF8
+SETUVAR --export LDFLAGS:\x2dL/home/linuxbrew/\x2elinuxbrew/opt/glibc/lib
 SETUVAR --export --path LD_LIBRARY_PATH:/usr/lib
 SETUVAR --export LSANTIONS:verbosity\x3d1\x3alog_threads\x3d1
 SETUVAR --export NVIM_FULL_CONFIG:1

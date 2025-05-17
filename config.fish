@@ -13,6 +13,9 @@ set -Ux fish_user_paths $fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbr
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
 # set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
+set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
+set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
+
 set -g async_prompt_functions _pure_prompt_git
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
