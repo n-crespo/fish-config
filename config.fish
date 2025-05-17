@@ -255,7 +255,7 @@ end
 function fzf_insert
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
 
-    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
+    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "insert selected file")
     if test -n "$selected_file"
         commandline -i "$selected_file"
     end
