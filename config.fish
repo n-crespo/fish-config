@@ -8,26 +8,27 @@ end
 
 # set -e fish_user_paths
 set -Ux NVIM_FULL_CONFIG 1
-set -e fish_user_paths
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ /home/linuxbrew/.linuxbrew/opt/glibc/lib /home/linuxbrew/.linuxbrew/opt/glibc/sbin
+# set -e fish_user_paths
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
+set -Ux fish_user_paths /usr/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ $fish_user_paths
+# set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
 # set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
-set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
-set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
+# set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
+# set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 
 set -g async_prompt_functions _pure_prompt_git
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
 set pure_symbol_title_bar_separator ""
 set pure_shorten_window_title_current_directory_length 1
 set pure_truncate_window_title_current_directory_keeps 1
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
-set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
+# set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set SHELL /bin/bash
 set LANG en_US.utf8
 set -Ux LC_CTYPE en_US.UTF8
