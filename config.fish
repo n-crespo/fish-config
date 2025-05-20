@@ -107,6 +107,7 @@ alias diskspace "du -Sh | sort -n -r"
 alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
 alias senv "source .venv/bin/activate.fish"
 alias info 'info --vi-keys'
+alias ns "nvim -c \"lua require('persistence').load()\""
 
 # alias vim nvim
 
@@ -221,19 +222,18 @@ function fzf_zoxide
     restore
 end
 
-# this just opens neovim at the selected directory. works nicely when you
-# configure neovim to auto-reload the last session when it is ran with no
-# arguments. See here:
+# this just opens neovim at the selected directory and loads the saved session
+# via persistence.nvim.
 # https://github.com/n-crespo/nvim/blob/3a594a35f88f8e80beb0fd3e97a42940d6df8748/lua/plugins/persistence.lua#L18
 function fzf_zoxide_nvim
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
     set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
   --bind "ctrl-p:toggle-preview" \
-  --header "nvim at dir" \
+  --header "load nvim session at dir" \
   --preview-window=hidden)
     if test -n "$selected_repo"
         cd "$selected_repo"
-        nvim
+        nvim -c "lua require('persistence').load()"
     end
     restore
 end
