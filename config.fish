@@ -2,6 +2,13 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# if test -f ~/.env
+#     for line in (cat ~/.env)
+#         set key_value (string split "=" $line)
+#         set -x $key_value[1] $key_value[2]
+#     end
+# end
+
 # ----------------------- #
 #       VARIABLES
 # ----------------------- #
@@ -10,7 +17,7 @@ end
 set -Ux NVIM_FULL_CONFIG 1
 # set -e fish_user_paths
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
-set -Ux fish_user_paths /usr/bin /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ $fish_user_paths
+set -Ux fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ $fish_user_paths
 # set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
