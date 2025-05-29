@@ -13,11 +13,11 @@ end
 #       VARIABLES
 # ----------------------- #
 
-# set -e fish_user_paths
 set -Ux NVIM_FULL_CONFIG 1
 # set -e fish_user_paths
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
-set -Ux fish_user_paths /home/nicolas/.cargo/bin/ /home/linuxbrew/.linuxbrew/opt/openjdk@17/include /home/nicolas/.local/bin /home/linuxbrew/.linuxbrew/bin/ $fish_user_paths
+set -Ux fish_user_paths $fish_user_paths /home/nicolas/.local/bin
+# /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
 # set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
@@ -35,12 +35,10 @@ set pure_shorten_window_title_current_directory_length 1
 set pure_truncate_window_title_current_directory_keeps 1
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
-# set -Ux JAVA_HOME /home/linuxbrew/.linuxbrew/Cellar/openjdk@17/17.0.13/
 set SHELL /bin/bash
-set LANG en_US.utf8
-set -Ux LC_CTYPE en_US.UTF8
-set -Ux LC_ALL en_US.UTF8
-set -Ux LSANTIONS verbosity=1:log_threads=1
+set LANG C.UTF-8
+set -Ux LC_CTYPE C.UTF-8
+set -Ux LC_ALL C.UTF-8
 export MANPAGER="nvim +Man!"
 
 zoxide init --cmd j fish | source # zoxide with j as alias
@@ -50,24 +48,21 @@ set pure_color_primary blue
 set pure_color_success brgreen
 set pure_color_info green
 set pure_color_mute green
+set pure_color_warning green
 
 set --global hydro_symbol_git_dirty '*'
 set --global fish_prompt_pwd_dir_length 100
-
-set pure_color_warning green
-
 set pure_enable_single_line_prompt true
 set pure_begin_prompt_with_current_directory true
 set pure_separate_prompt_on_error false
 set pure_show_prefix_root_prompt true
 set pure_threshold_command_duration 5
+set pure_enable_git true
 set pure_symbol_prompt '❯'
-set pure_enable_git true # this can be disable to make things faster but async does that too
 set pure_symbol_git_unpulled_commits '↓'
 set pure_symbol_git_unpushed_commits '↑'
-set pure_symbol_git_stash ' '
-# set pure_symbol_reverse_prompt '❯'
 set pure_symbol_reverse_prompt '❮'
+set pure_symbol_git_stash ' '
 set pure_reverse_prompt_symbol_in_vimode true
 set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
@@ -87,10 +82,6 @@ alias \\rm 'command rm'
 alias mkdir 'mkdir -p'
 alias psaa 'pstree -a'
 alias psa 'ps -eo user,pid,cmd --forest ww'
-alias .. 'cd ..'
-alias .. 'cd ..'
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
 alias ls 'eza --icons=always --group-directories-first' # add colors and file type extensions
 alias la 'ls -Alh --group-directories-first' # show hidden files
 alias l 'ls -l --group-directories-first --git -a'
@@ -101,21 +92,18 @@ alias exp 'open .' # wsl specific, open explorer in cwd
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias nala 'sudo nala'
 alias csv csvlens
-# C:\Users\nicol\AppData\Local\Microsoft\WindowsApps\pwsh.exe
 alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
-alias wintop 'win --c "btop"'
 alias powershell.exe "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
-alias wezterm "/mnt/c/Users/nicol/scoop/shims/wezterm.exe"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
-alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
-# alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
 alias diskspace "du -Sh | sort -n -r"
 alias venv "python3 -m venv .venv;source .venv/bin/activate.fish"
 alias senv "source .venv/bin/activate.fish"
 alias info 'info --vi-keys'
 alias ns "nvim -c \"lua require('persistence').load()\""
-
+# alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
+# alias nc "alias nc='NVIM_APPNAME=connor-nvim/ nvim'"
+# alias wintop 'win --c "btop"'
 # alias vim nvim
 
 # ----------------------- #
@@ -282,21 +270,10 @@ end
 #       KEYBINDINGS
 # ----------------------- #
 
-# <C-z> does fg
-bind -M insert \cz "fg;restore"
-
-# control-enter to accept-autosuggestion
-bind -M insert \e\[13\;5u accept-autosuggestion
-
-# below lines for fzf zoxide
-# bind -M insert \cP "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
-# bind -M insert \n "__zoxide_zi; commandline -f kill-whole-line; commandline -f repaint"
-
-# use <M-BS> for clearing line
-bind -M insert \e\x7F kill-whole-line repaint
-
-# prepend sudo to last command with ctrl+s
-bind -M insert \cS __fish_prepend_sudo
+bind -M insert \cz "fg;restore" # <C-z> does fg
+bind -M insert \e\[13\;5u accept-autosuggestion # control-enter to accept-autosuggestion
+bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
+bind -M insert \cS __fish_prepend_sudo # prepend sudo to last command with ctrl+s
 
 # standard nav keymaps
 bind -M insert \cP history-search-backward

@@ -1,20 +1,13 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export 0:\x1d
-SETUVAR --export CPPFLAGS:\x2dI/home/linuxbrew/\x2elinuxbrew/opt/glibc/include
 SETUVAR --export DISPLAY:\x3a0
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x2d\x2dhidden\x20\x2d\x2dexclude\x20\x2egit\x20\x2d\x2dexclude\x20\x2evenv
 SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dborder\x20\x2d\x2dinfo\x3dinline\x20\x2d\x2dheight\x3d50\x25
-SETUVAR --export FZF_FIND_FILE_COMMAND:find\x20\x2e\x20\x2dtype\x20d\x20\x2dname\x20\x2egit\x20\x2dprune\x20\x2do\x20\x2dtype\x20f\x20\x2dprint
 SETUVAR --export FZF_OPEN_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x2d\x2dexclude\x20\x2egit\x20\x2d\x2dhidden\x20\x2d\x2dno\x2dignore
-SETUVAR --export JAVA_HOME:/home/linuxbrew/\x2elinuxbrew/Cellar/openjdk\x4017/17\x2e0\x2e13/
-SETUVAR --export LANG:en_US\x2eutf8
-SETUVAR --export LC_ALL:en_US\x2eUTF8
-SETUVAR --export LC_CTYPE:en_US\x2eUTF8
-SETUVAR --export LDFLAGS:\x2dL/home/linuxbrew/\x2elinuxbrew/opt/glibc/lib
-SETUVAR --export --path LD_LIBRARY_PATH:/usr/lib
-SETUVAR --export LSANTIONS:verbosity\x3d1\x3alog_threads\x3d1
+SETUVAR --export LC_ALL:C\x2eUTF\x2d8
+SETUVAR --export LC_CTYPE:C\x2eUTF\x2d8
 SETUVAR --export NVIM_FULL_CONFIG:1
 SETUVAR --export SHELL:/bin/fish
 SETUVAR --export TERM:xterm\x2d256color
@@ -65,7 +58,7 @@ SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_prompt_pwd_dir_length:52
-SETUVAR --export fish_user_paths:/home/nicolas/\x2ecargo/bin/\x1e/home/linuxbrew/\x2elinuxbrew/opt/openjdk\x4017/include\x1e/home/nicolas/\x2elocal/bin\x1e/home/linuxbrew/\x2elinuxbrew/bin/
+SETUVAR --export fish_user_paths:/home/nicolas/\x2elocal/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:true
 SETUVAR pure_color_at_sign:pure_color_mute
@@ -132,9 +125,3 @@ SETUVAR pure_symbol_virtualenv_prefix:
 SETUVAR pure_threshold_command_duration:5
 SETUVAR pure_truncate_prompt_current_directory_keeps:0
 SETUVAR pure_truncate_window_title_current_directory_keeps:1
-SETUVAR sponge_allow_previously_successful:true
-SETUVAR sponge_delay:2
-SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
-SETUVAR sponge_purge_only_on_exit:false
-SETUVAR sponge_regex_patterns:\x1d
-SETUVAR sponge_successful_exit_codes:0
