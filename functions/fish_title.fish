@@ -1,11 +1,22 @@
 function fish_title \
-    --description "Set title to current folder and shell name" \
+    --description "Set title to current folder, with command unless it's fish or idle" \
     --argument-names last_command
 
-    set --local current_folder (fish_prompt_pwd_dir_length=$pure_shorten_window_title_current_directory_length prompt_pwd)
-    set --local current_command (status current-command 2>/dev/null; or echo $_)[1] # we use index to ignore extraneous item, see #360
+    # Get the current folder name (always show this)
+    set --local current_folder (prompt_pwd)
 
-    set --local prompt "$current_folder: $pure_symbol_title_bar_separator $current_command"
+    # Get the currently executing command.
+    # This will be empty if no command is actively executing (idle prompt).
+    set --local current_running_command (status current-command)
 
-    echo $prompt
+    # Determine what to display after the folder
+    set --local title_suffix
+
+    if test -n "$current_running_command" -a "$current_running_command" != fish
+        # If a command is running AND it's not "fish" itself, show that command
+        set title_suffix "$current_running_command"
+        echo "$current_folder: $title_suffix"
+    else
+        echo "$current_folder"
+    end
 end
