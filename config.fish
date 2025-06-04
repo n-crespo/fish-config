@@ -302,3 +302,5 @@ bind -M insert \ct fzf_insert # insert file
 #     end
 # end
 ## <<< conda initialize <<<
+
+source ~/secrets.fish
