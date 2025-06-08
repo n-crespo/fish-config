@@ -92,8 +92,9 @@ alias exp 'open .' # wsl specific, open explorer in cwd
 alias shutdown '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c wsl --shutdown'
 alias nala 'sudo nala'
 alias csv csvlens
-alias win "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
-alias powershell.exe "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol"
+alias win "cd /mnt/c/Users/nicol/"
+alias powershell.exe "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol -nologo"
+alias pwsh "/mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -WorkingDirectory C:/Users/nicol -nologo"
 alias cmd.exe "/mnt/c/Windows/System32/cmd.exe"
 alias focus 'cbonsai -i -l --time=0.1 --life=50'
 alias diskspace "du -Sh | sort -n -r"
@@ -126,8 +127,23 @@ abbr n nvim
 #       FUNCTIONS
 # ----------------------- #
 
-function fish_greeting
-    # fortune
+function tt
+    read -P "ticktask title: " title
+    if test -z "$title"
+        echo "No title entered"
+        return 1
+    end
+
+    read -P "ticktask description: " desc
+
+    echo "$desc" | ticktask $title
+    set tt_status $status
+
+    if test $tt_status -eq 0
+        echo "Success!"
+    else
+        echo "Failed to add task :("
+    end
 end
 
 function fish_right_prompt
