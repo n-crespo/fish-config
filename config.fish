@@ -25,14 +25,10 @@ set -Ux fish_user_paths $fish_user_paths /home/nicolas/.local/bin
 # set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 
-set -g async_prompt_functions _pure_prompt_git
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -x DISPLAY :0 # fix vscode
 set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
-set pure_symbol_title_bar_separator ""
-set pure_shorten_window_title_current_directory_length 1
-set pure_truncate_window_title_current_directory_keeps 1
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set SHELL /bin/bash
@@ -42,16 +38,19 @@ set -Ux LC_ALL C.UTF-8
 export MANPAGER="nvim +Man!"
 
 zoxide init --cmd j fish | source # zoxide with j as alias
-# theme_tokyonight night
 
+set --global fish_prompt_pwd_dir_length 100
+
+set -g async_prompt_functions _pure_prompt_git
+set pure_symbol_title_bar_separator ""
+set pure_shorten_window_title_current_directory_length 1
+set pure_truncate_window_title_current_directory_keeps 1
 set pure_color_primary blue
 set pure_color_success brgreen
 set pure_color_info green
 set pure_color_mute green
 set pure_color_warning green
-
-set --global hydro_symbol_git_dirty '*'
-set --global fish_prompt_pwd_dir_length 100
+set pure_check_for_new_release false
 set pure_enable_single_line_prompt true
 set pure_begin_prompt_with_current_directory true
 set pure_separate_prompt_on_error false
@@ -64,7 +63,6 @@ set pure_symbol_git_unpushed_commits '↑'
 set pure_symbol_reverse_prompt '❮'
 set pure_symbol_git_stash ' '
 set pure_reverse_prompt_symbol_in_vimode true
-set pure_check_for_new_release true
 set pure_show_subsecond_command_duration false
 set pure_show_jobs true
 
