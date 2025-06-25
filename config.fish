@@ -15,8 +15,14 @@ end
 
 set -Ux NVIM_FULL_CONFIG 1
 # set -e fish_user_paths
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
-set -Ux fish_user_paths $fish_user_paths /home/nicolas/.local/bin
+
+if test -f /home/linuxbrew/.linuxbrew/bin/brew
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
+end
+
+if test -d /home/nicolas/.local/bin
+    set -Ux fish_user_paths $fish_user_paths /home/nicolas/.local/bin
+end
 # /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
 # set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
@@ -317,4 +323,6 @@ bind -M insert \ct fzf_insert # insert file
 # end
 ## <<< conda initialize <<<
 
-source ~/secrets.fish
+if test -f ~/secrets.fish
+    source ~/secrets.fish
+end
