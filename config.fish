@@ -290,23 +290,23 @@ end
 #       KEYBINDINGS
 # ----------------------- #
 
-bind -M insert \cz "fg;restore" # <C-z> does fg
-bind -M insert \e\[13\;5u accept-autosuggestion # control-enter to accept-autosuggestion
-bind -M insert \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
-bind -M insert \cS __fish_prepend_sudo # prepend sudo to last command with ctrl+s
+bind \cz "fg;restore" # <C-z> does fg
+bind \e\[13\;5u accept-autosuggestion # control-enter to accept-autosuggestion
+bind \e\x7F kill-whole-line repaint # use <M-BS> for clearing line
+bind \cS __fish_prepend_sudo # prepend sudo to last command with ctrl+s
 
 # standard nav keymaps
-bind -M insert \cP history-search-backward
-bind -M insert \cN history-search-forward
-bind -M insert \ca beginning-of-line
-bind -M insert \ce end-of-line
+bind \cP history-search-backward
+bind \cN history-search-forward
+bind \ca beginning-of-line
+bind \ce end-of-line
 
 # FZF Keymaps
-bind -M insert \cj fzf_zoxide # jump to directory
-bind -M insert \cf fzf_zoxide_nvim # jump to directory
-bind -M insert \co fzf_open # open file
-bind -M insert \cr fzf_history # search history
-bind -M insert \ct fzf_insert # insert file
+bind \cj fzf_zoxide # jump to directory
+bind \cf fzf_zoxide_nvim # jump to directory
+bind \co fzf_open # open file
+bind \cr fzf_history # search history
+bind \ct fzf_insert # insert file
 
 # NOTE: To stop (base) in shell prompt, use `conda config --set auto_activate_base false`
 
