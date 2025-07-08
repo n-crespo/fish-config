@@ -286,6 +286,7 @@ function restore
     printf '\e[6 q' # restore cursor
 end
 
+printf '\e[6 q'
 function restore_cursor --on-event fish_postexec
     printf '\e[6 q' # restore cursor
 end
