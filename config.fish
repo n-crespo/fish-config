@@ -38,9 +38,9 @@ set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
 set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 # set SHELL /usr/bin/zsh
-set LANG C.UTF-8
-set -Ux LC_CTYPE C.UTF-8
-set -Ux LC_ALL C.UTF-8
+set -Ux LANG en_US.UTF-8
+set -Ux LC_ALL en_US.UTF-8
+# set -Ux LC_CTYPE C.UTF-8
 export MANPAGER="nvim +Man!"
 
 zoxide init --cmd j fish | source # zoxide with j as alias
