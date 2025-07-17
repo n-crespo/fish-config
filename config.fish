@@ -229,7 +229,6 @@ function fzf_zoxide
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
     set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
         --bind "ctrl-p:toggle-preview" \
-        --header "jump to directory" \
         --preview-window=hidden)
     if test -n "$selected_repo"
         cd "$selected_repo"
@@ -244,7 +243,6 @@ function fzf_zoxide_nvim
     set preview_toggle "--preview=eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}"
     set selected_repo (zoxide query --list | fzf --ansi --height=50% --layout=reverse $preview_toggle \
   --bind "ctrl-p:toggle-preview" \
-  --header "load nvim session at dir" \
   --preview-window=hidden)
     if test -n "$selected_repo"
         cd "$selected_repo"
@@ -254,8 +252,9 @@ function fzf_zoxide_nvim
 end
 
 function fzf_open
-    set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
-    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "open selected file")
+    # set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
+    # set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview")
+    set selected_file (fd --type f --exclude .git --hidden --no-ignore | fzf --ansi --height=50% --layout=reverse)
     if test -n "$selected_file"
         nvim "$selected_file"
     end
@@ -274,7 +273,7 @@ end
 function fzf_insert
     set preview_toggle "--preview=bat --color=always --plain --line-range=:50 {}"
 
-    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" --header "insert selected file")
+    set selected_file (fd --type f --exclude .git --hidden | fzf --ansi --height=50% --layout=reverse $preview_toggle --bind "ctrl-p:toggle-preview" )
     if test -n "$selected_file"
         commandline -i "$selected_file"
     end
