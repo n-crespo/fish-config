@@ -24,20 +24,22 @@ set --global fish_prompt_pwd_dir_length 100
 set pure_enable_single_line_prompt true
 set -g async_prompt_functions _pure_prompt_git
 set pure_color_primary blue
-set pure_color_success brblack
+set pure_color_success purple
 set pure_color_info brblack
 set pure_color_mute brblack
 set pure_color_warning brblack
 set pure_symbol_git_stash ' '
+set pure_symbol_color brpurple
 set pure_show_jobs true
 set pure_show_subsecond_command_duration true
+set --universal pure_check_for_new_release false
 
 # path things
-zoxide init --cmd j fish | source # zoxide with j as alias
 set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 end
+zoxide init --cmd j fish | source # zoxide with j as alias
 
 abbr lg lazygit
 abbr v vim
