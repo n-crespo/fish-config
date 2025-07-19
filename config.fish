@@ -1,12 +1,12 @@
 if status is-interactive # Commands to run in interactive sessions can go here
 end
 
+printf '\e[6 q' # fix cursor on source
 if test -f ~/secrets.fish
     source ~/secrets.fish
 end
 
-printf '\e[6 q' # fix cursor on source
-
+# env things
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
 set -Ux NVIM_FULL_CONFIG 1
@@ -32,14 +32,12 @@ set pure_symbol_git_stash ' '
 set pure_show_jobs true
 set pure_show_subsecond_command_duration true
 
+# path things
+zoxide init --cmd j fish | source # zoxide with j as alias
+set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
 end
-if test -d /home/nicolas/.local/bin
-    set -Ux fish_user_paths $fish_user_paths /home/nicolas/.local/bin
-end
-
-zoxide init --cmd j fish | source # zoxide with j as alias
 
 abbr lg lazygit
 abbr v vim
@@ -70,6 +68,7 @@ alias exp 'open .' # wsl specific, open explorer in cwd
 alias nala 'sudo nala'
 alias win "cd /mnt/c/Users/nicol/"
 alias ns "nvim -c \"lua require('persistence').load()\""
+
 # alias diskspace "du -Sh | sort -n -r"
 # alias info 'info --vi-keys'
 # alias g31 '/usr/bin/g++-10 *.cpp -std=c++17 -Wall -Wextra -Wno-sign-compare -Werror=return-type -fsanitize=address -fsanitize=undefined -fsanitize=bounds -fno-omit-frame-pointer -o /tmp/a.out && /tmp/a.out'
