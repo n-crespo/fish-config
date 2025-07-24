@@ -28,7 +28,7 @@ set pure_color_success purple
 set pure_color_info brblack
 set pure_color_mute brblack
 set pure_color_warning brblack
-set pure_symbol_git_stash ' '
+set pure_symbol_git_stash ''
 set pure_symbol_color brpurple
 set pure_show_jobs true
 set pure_show_subsecond_command_duration true

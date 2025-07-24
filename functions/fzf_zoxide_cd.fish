@@ -5,6 +5,6 @@ function fzf_zoxide_cd
         if contains -- --edit $argv
             nvim -c "lua require('persistence').load()"
         end
-        restore
     end
+    restore
 end
