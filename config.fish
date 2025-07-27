@@ -12,12 +12,12 @@ set -gx EDITOR nvim # set correct editor
 set -Ux NVIM_FULL_CONFIG 1
 set -x DISPLAY :0 # fix vscode
 set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
-set -Ux FZF_DEFAULT_OPTS "--border --info=inline --height=50%"
+set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --no-height --reverse"
+set -Ux _ZO_FZF_OPTS "--style=minimal --info=inline --height=50% --reverse"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
 set -Ux MANPAGER "nvim +Man!"
-set -Ux _ZO_FZF_OPTS "--border --info=inline --height=50% --reverse"
 
 # prompt things
 set --global fish_prompt_pwd_dir_length 100
@@ -34,11 +34,19 @@ set pure_show_jobs true
 set pure_show_subsecond_command_duration true
 set --universal pure_check_for_new_release false
 
-# path things
-set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
+# set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
+fish_add_path $HOME/.local/bin
+
+# add brew to path
 if test -f /home/linuxbrew/.linuxbrew/bin/brew
-    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv) # some brew stuff
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 end
+if test -d "$(brew --prefix)/opt/openjdk@17/bin"
+    fish_add_path $(brew --prefix)/opt/openjdk@17/bin
+end
+
+fzf --fish | source
+
 zoxide init --cmd j fish | source # zoxide with j as alias
 
 abbr lg lazygit
@@ -100,3 +108,4 @@ alias ns "nvim -c \"lua require('persistence').load()\""
 # set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
 # set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
+# set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/openjdk@17/include"
