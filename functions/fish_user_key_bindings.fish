@@ -14,8 +14,8 @@ function fish_user_key_bindings
     # bind \cN history-search-forward
 
     # FZF Keymaps
-    bind \cj fzf_zoxide_cd # jump to directory
-    bind \cf fzf_zoxide_edit # jump to directory
+    bind \cj fzf_cd # jump to directory
+    bind \cf fzf_edit # jump to directory
     bind \co fzf_open # open file
     # bind \cr fzf_history # search history
     # bind \ct fzf_insert # insert file

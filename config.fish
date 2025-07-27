@@ -12,8 +12,8 @@ set -gx EDITOR nvim # set correct editor
 set -Ux NVIM_FULL_CONFIG 1
 set -x DISPLAY :0 # fix vscode
 set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
-set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --no-height --reverse"
-set -Ux _ZO_FZF_OPTS "--style=minimal --info=inline --height=50% --reverse"
+set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --height=~50% --reverse"
+set -Ux _ZO_FZF_OPTS "--style=minimal --info=inline --height=~50% --reverse"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
