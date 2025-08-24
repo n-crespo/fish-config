@@ -46,7 +46,7 @@ if test -d "$(brew --prefix)/opt/openjdk@17/bin"
 end
 
 fzf --fish | source
-
+# source "$HOME/.cargo/env"
 zoxide init --cmd j fish | source # zoxide with j as alias
 
 abbr lg lazygit
@@ -102,7 +102,7 @@ alias ns "nvim -c \"lua require('persistence').load()\""
 
 # set SHELL /usr/bin/zsh
 # /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
-# set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
+set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
 # set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
