@@ -100,9 +100,9 @@ alias ns "nvim -c \"lua require('persistence').load()\""
 # end
 ## <<< conda initialize <<<
 
+# set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set SHELL /usr/bin/zsh
 # /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
-set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
 # set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
