@@ -79,7 +79,7 @@ alias nala 'sudo nala'
 # alias win "cd /mnt/c/Users/nicol/"
 alias win "powershell.exe"
 alias ns "nvim -c \"lua require('persistence').load()\""
-alias vim nvim
+alias vim "nvim --clean"
 
 # alias diskspace "du -Sh | sort -n -r"
 # alias info 'info --vi-keys'
