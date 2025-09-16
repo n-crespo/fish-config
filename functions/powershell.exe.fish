@@ -1,3 +1,3 @@
 function powershell.exe
-    /mnt/c/Users/nicol/AppData/Local/Microsoft/WindowsApps/pwsh.exe -nologo
+    /mnt/c/Users/nicol/scoop/apps/pwsh/current/pwsh.exe -nologo
 end
