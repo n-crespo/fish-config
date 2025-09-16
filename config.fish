@@ -77,7 +77,7 @@ alias f "find . | grep " # Search files in the current folder
 alias exp 'open .' # wsl specific, open explorer in cwd
 alias nala 'sudo nala'
 # alias win "cd /mnt/c/Users/nicol/"
-alias win "powershell.exe"
+alias win pwsh
 alias ns "nvim -c \"lua require('persistence').load()\""
 alias vim "nvim --clean"
 
