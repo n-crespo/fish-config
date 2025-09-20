@@ -9,7 +9,7 @@ end
 # env things
 set -Ux EDITOR nvim # set correct editor
 set -gx EDITOR nvim # set correct editor
-set -Ux NVIM_FULL_CONFIG 1
+set -Ux NVIM_FULL_CONFIG true
 set -x DISPLAY :0 # fix vscode
 set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
 set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --height=~50% --reverse"
