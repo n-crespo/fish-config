@@ -49,7 +49,6 @@ fzf --fish | source
 # source "$HOME/.cargo/env"
 zoxide init --cmd j fish | source # zoxide with j as alias
 
-abbr lg lazygit
 abbr v vim
 abbr g git
 abbr q exit
