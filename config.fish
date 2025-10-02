@@ -102,7 +102,7 @@ alias vim "nvim --clean"
 ## <<< conda initialize <<<
 
 # set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
-set SHELL /usr/bin/zsh
+set SHELL zsh
 # /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
 # set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
