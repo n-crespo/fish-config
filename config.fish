@@ -16,7 +16,7 @@ set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --height=~50% --reverse"
 set -Ux _ZO_FZF_OPTS "--style=minimal --info=inline --height=~50% --reverse"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
 set -Ux LANG en_US.UTF-8
-set -Ux LC_ALL en_US.UTF-8
+# set -Ux LC_ALL en_US.UTF-8
 set -Ux MANPAGER "nvim +Man!"
 
 # prompt things
