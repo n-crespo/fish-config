@@ -74,7 +74,7 @@ alias l 'ls -l --group-directories-first --git -a'
 alias lt 'ls --tree' # tree
 alias p "ps aux | grep " # Search running processes
 alias f "find . | grep " # Search files in the current folder
-alias exp 'open .' # wsl specific, open explorer in cwd
+alias exp 'explorer.exe .' # wsl specific, open explorer in cwd
 alias nala 'sudo nala'
 # alias win "cd /mnt/c/Users/nicol/"
 alias win pwsh
