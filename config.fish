@@ -59,6 +59,7 @@ abbr ff fastfetch
 abbr c clear
 abbr n. "nvim ."
 abbr n nvim
+abbr lg lazygit
 
 alias cp 'cp -i'
 alias mv 'mv -i'
