@@ -15,7 +15,8 @@ set fish_prompt_pwd_dir_length 52 # abbreviate paths in prompt
 set -Ux FZF_DEFAULT_OPTS "--style=minimal --info=inline --height=~50% --reverse"
 set -Ux _ZO_FZF_OPTS "--style=minimal --info=inline --height=~50% --reverse"
 set -Ux FZF_DEFAULT_COMMAND "fd --type f --hidden --exclude .git --exclude .venv"
-set -Ux LANG en_US.UTF-8
+# set -Ux LANG en_US.UTF-8
+# set -Ux LANG en_US.UTF-8
 # set -Ux LC_ALL en_US.UTF-8
 set -Ux MANPAGER "nvim +Man!"
 
@@ -76,8 +77,8 @@ alias p "ps aux | grep " # Search running processes
 alias f "find . | grep " # Search files in the current folder
 alias exp 'explorer.exe .' # wsl specific, open explorer in cwd
 alias nala 'sudo nala'
-# alias win "cd /mnt/c/Users/nicol/"
-alias win pwsh
+alias win "cd /mnt/c/Users/nicol/"
+# alias win pwsh
 alias ns "nvim -c \"lua require('persistence').load()\""
 alias vim "nvim --clean"
 
