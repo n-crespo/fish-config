@@ -1,7 +1,7 @@
 if status is-interactive # Commands to run in interactive sessions can go here
 end
 
-printf '\e[6 q' # fix cursor on source
+# printf '\e[6 q' # fix cursor on source
 if test -f ~/secrets.fish
     source ~/secrets.fish
 end
