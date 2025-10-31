@@ -38,14 +38,6 @@ set --universal pure_check_for_new_release false
 # set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
 fish_add_path $HOME/.local/bin
 
-# add brew to path
-if test -f /home/linuxbrew/.linuxbrew/bin/brew
-    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-end
-if test -d "$(brew --prefix)/opt/openjdk@17/bin"
-    fish_add_path $(brew --prefix)/opt/openjdk@17/bin
-end
-
 # fzf | source
 # source "$HOME/.cargo/env"
 zoxide init --cmd j fish | source # zoxide with j as alias
@@ -103,12 +95,5 @@ alias vim "nvim --clean"
 # end
 ## <<< conda initialize <<<
 
-# set -Ux LD_LIBRARY_PATH "$HOME/.linuxbrew/opt/glibc/lib"
 set SHELL zsh
-# /home/linuxbrew/.linuxbrew/opt/openjdk@17/include
-# set -gx LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
 # set -Ux LD_LIBRARY_PATH /usr/lib
-# set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
-# set -Ux LDFLAGS "-L/home/linuxbrew/.linuxbrew/opt/glibc/lib"
-# set -Ux CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/glibc/include"
-# set -gx CPPFLAGS "-I/home/linuxbrew/.linuxbrew/opt/openjdk@17/include"
